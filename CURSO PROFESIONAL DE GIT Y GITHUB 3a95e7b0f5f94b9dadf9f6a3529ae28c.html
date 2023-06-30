@@ -1,0 +1,767 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>CURSO PROFESIONAL DE GIT Y GITHUB</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	padding-inline-start: 0;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.page-description {
+    margin-bottom: 2em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-interactiveBlue { background-color: rgba(35, 131, 226, .07); }
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-translucentGray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+.select-value-color-pageGlass { background-color: undefined; }
+.select-value-color-washGlass { background-color: undefined; }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="3a95e7b0-f5f9-4b9d-adf9-f6a3529ae28c" class="page sans"><header><h1 class="page-title">CURSO PROFESIONAL DE GIT Y GITHUB</h1><p class="page-description"></p><table class="properties"><tbody><tr class="property-row property-row-created_time"><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesCreatedAt"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM4.54102 8.91211H7.99316C8.30078 8.91211 8.54004 8.67285 8.54004 8.37207V3.8877C8.54004 3.58691 8.30078 3.34766 7.99316 3.34766C7.69238 3.34766 7.45312 3.58691 7.45312 3.8877V7.83203H4.54102C4.2334 7.83203 4.00098 8.06445 4.00098 8.37207C4.00098 8.67285 4.2334 8.91211 4.54102 8.91211Z"></path></svg></span>Fecha de creación</th><td><time>@26 de mayo de 2023 11:08</time></td></tr><tr class="property-row property-row-multi_select"><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesMultipleSelect"><path d="M1.91602 4.83789C2.44238 4.83789 2.87305 4.40723 2.87305 3.87402C2.87305 3.34766 2.44238 2.91699 1.91602 2.91699C1.38281 2.91699 0.952148 3.34766 0.952148 3.87402C0.952148 4.40723 1.38281 4.83789 1.91602 4.83789ZM5.1084 4.52344H14.3984C14.7607 4.52344 15.0479 4.23633 15.0479 3.87402C15.0479 3.51172 14.7607 3.22461 14.3984 3.22461H5.1084C4.74609 3.22461 4.45898 3.51172 4.45898 3.87402C4.45898 4.23633 4.74609 4.52344 5.1084 4.52344ZM1.91602 9.03516C2.44238 9.03516 2.87305 8.60449 2.87305 8.07129C2.87305 7.54492 2.44238 7.11426 1.91602 7.11426C1.38281 7.11426 0.952148 7.54492 0.952148 8.07129C0.952148 8.60449 1.38281 9.03516 1.91602 9.03516ZM5.1084 8.7207H14.3984C14.7607 8.7207 15.0479 8.43359 15.0479 8.07129C15.0479 7.70898 14.7607 7.42188 14.3984 7.42188H5.1084C4.74609 7.42188 4.45898 7.70898 4.45898 8.07129C4.45898 8.43359 4.74609 8.7207 5.1084 8.7207ZM1.91602 13.2324C2.44238 13.2324 2.87305 12.8018 2.87305 12.2686C2.87305 11.7422 2.44238 11.3115 1.91602 11.3115C1.38281 11.3115 0.952148 11.7422 0.952148 12.2686C0.952148 12.8018 1.38281 13.2324 1.91602 13.2324ZM5.1084 12.918H14.3984C14.7607 12.918 15.0479 12.6309 15.0479 12.2686C15.0479 11.9062 14.7607 11.6191 14.3984 11.6191H5.1084C4.74609 11.6191 4.45898 11.9062 4.45898 12.2686C4.45898 12.6309 4.74609 12.918 5.1084 12.918Z"></path></svg></span>Clase</th><td><span class="selected-value select-value-color-red">GIT</span><span class="selected-value select-value-color-blue">GitHub</span><span class="selected-value select-value-color-green">Platzi</span></td></tr><tr class="property-row property-row-select"><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesSelect"><path d="M8 15.126C11.8623 15.126 15.0615 11.9336 15.0615 8.06445C15.0615 4.20215 11.8623 1.00293 7.99316 1.00293C4.13086 1.00293 0.938477 4.20215 0.938477 8.06445C0.938477 11.9336 4.1377 15.126 8 15.126ZM8 13.7383C4.85547 13.7383 2.33301 11.209 2.33301 8.06445C2.33301 4.91992 4.84863 2.39746 7.99316 2.39746C11.1377 2.39746 13.6738 4.91992 13.6738 8.06445C13.6738 11.209 11.1445 13.7383 8 13.7383ZM7.62402 10.6348C7.79492 10.915 8.20508 10.9287 8.37598 10.6348L10.666 6.73145C10.8574 6.41016 10.7002 6.04102 10.3652 6.04102H5.62793C5.29297 6.04102 5.14941 6.43066 5.32031 6.73145L7.62402 10.6348Z"></path></svg></span>Tipo</th><td><span class="selected-value select-value-color-pink">Curso Online</span></td></tr><tr class="property-row property-row-file"><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesFile"><path d="M12.5938 8.44043L7.54883 13.4854C6.26367 14.7773 4.54102 14.6475 3.44043 13.54C2.32617 12.4326 2.20312 10.7168 3.49512 9.4248L10.3926 2.52734C11.1445 1.77539 12.2725 1.63867 13.0039 2.37695C13.7422 3.11523 13.6055 4.22949 12.8535 4.98828L6.08594 11.7627C5.77832 12.0703 5.41602 11.9814 5.2041 11.7764C4.99902 11.5576 4.91016 11.2021 5.21777 10.8877L9.93457 6.1709C10.1738 5.93164 10.1875 5.58301 9.96191 5.35059C9.72949 5.13184 9.38086 5.13867 9.1416 5.37793L4.39746 10.1152C3.67285 10.8535 3.7002 11.9746 4.34961 12.624C5.05371 13.3281 6.12012 13.3145 6.8584 12.5762L13.6602 5.77441C14.9795 4.45508 14.9316 2.71875 13.7764 1.55664C12.6416 0.428711 10.8779 0.34668 9.55176 1.66602L2.61328 8.61816C0.883789 10.3477 1 12.8291 2.57227 14.4014C4.14453 15.9668 6.63281 16.0898 8.3623 14.3672L13.4414 9.28809C13.6738 9.0625 13.667 8.64551 13.4346 8.41992C13.209 8.18066 12.833 8.21484 12.5938 8.44043Z"></path></svg></span>Adjuntos</th><td></td></tr><tr class="property-row property-row-checkbox"><th><span class="icon property-icon"><svg viewBox="0 0 16 16" style="width:14px;height:14px;display:block;fill:rgba(55, 53, 47, 0.45);flex-shrink:0;-webkit-backface-visibility:hidden" class="typesCheckbox"><path d="M3.85742 14.4561H12.1357C13.6123 14.4561 14.3779 13.6904 14.3779 12.2344V3.91504C14.3779 2.45215 13.6123 1.69336 12.1357 1.69336H3.85742C2.38086 1.69336 1.61523 2.45215 1.61523 3.91504V12.2344C1.61523 13.6973 2.38086 14.4561 3.85742 14.4561ZM3.93945 13.1162C3.30371 13.1162 2.95508 12.7812 2.95508 12.1182V4.02441C2.95508 3.36133 3.30371 3.0332 3.93945 3.0332H12.0537C12.6826 3.0332 13.0381 3.36133 13.0381 4.02441V12.1182C13.0381 12.7812 12.6826 13.1162 12.0537 13.1162H3.93945ZM7.26855 11.3115C7.51465 11.3115 7.72656 11.1885 7.87012 10.9697L10.9258 6.19141C11.0146 6.04785 11.0967 5.88379 11.0967 5.72656C11.0967 5.3916 10.7959 5.16602 10.4746 5.16602C10.2695 5.16602 10.085 5.27539 9.94141 5.50781L7.24121 9.8418L5.96973 8.22168C5.80566 8.00977 5.6416 7.93457 5.43652 7.93457C5.10156 7.93457 4.8418 8.20117 4.8418 8.54297C4.8418 8.70703 4.90332 8.85742 5.01953 9.00098L6.63281 10.9697C6.81738 11.209 7.01562 11.3115 7.26855 11.3115Z"></path></svg></span>Revisado</th><td><div class="checkbox checkbox-off"></div></td></tr></tbody></table></header><div class="page-body"><h1 id="7478b526-31cd-469d-8201-70302a89d525" class="">RESUMEN</h1><figure id="dd8bd769-6974-4421-be09-caa0a2a6b329" class="image"><a href="CURSO%20PROFESIONAL%20DE%20GIT%20Y%20GITHUB%203a95e7b0f5f94b9dadf9f6a3529ae28c/Untitled.png"><img style="width:1024px" src="CURSO%20PROFESIONAL%20DE%20GIT%20Y%20GITHUB%203a95e7b0f5f94b9dadf9f6a3529ae28c/Untitled.png"/></a></figure><p id="9bd155ff-d8fb-4a9c-8f6a-347458fafcbd" class="">
+</p><p id="4141857e-3a04-497d-9c92-a80e16738dd9" class="">
+</p><p id="4bbc8ad0-7e96-45e7-8d36-0ce4a38a198a" class=""><mark class="highlight-red">/ TODO: HACER RESUMEN AUTOMÁTICO</mark></p><p id="2a213dbc-bbc0-40d1-a757-a8ac4a08356b" class="">
+</p><h1 id="82d9851d-6a52-43d7-a738-e9d6b0ff6e3f" class="">TABLA RESUMEN DE COMANDOS</h1><p id="5aeb5bfa-1ef1-4038-9e63-55bd55496b9c" class=""><mark class="highlight-red">/ TODO: CREAR UNA TABLA CON LOS COMANDOS</mark></p><p id="9a4cff09-22ce-4ee3-9a17-6e912a2fc652" class="">
+</p><h1 id="c0daef31-e83a-49d7-b989-d0213db30494" class="block-color-brown_background">CREAR UN REPOSITORIO Y HACER UN COMMIT</h1><p id="d22b43fd-e65b-489f-9581-245dcb4e0791" class="">Para crear un repositorio hay que decir dónde está la carpeta central de los archivos.</p><pre id="121db5b1-bb20-4bb8-a682-29a462f12121" class="code code-wrap"><code>git init
+</code></pre><p id="6e2f84ad-cc79-4902-abe4-1999d8d99f7a" class="">El comando &quot;git init&quot; inicializa un nuevo repositorio de Git. Crea un nuevo subdirectorio .git en el directorio de trabajo actual, el cual contiene toda la metadata necesaria para el repositorio.</p><p id="2f8d2b81-0d5b-4431-8891-17471d471cd3" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="c1bddc05-1558-4abe-9296-6e98fb1fdd80"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">&quot;Cambios atómicos&quot; se refiere a la práctica de hacer cambios en un repositorio de Git de manera incremental y en paquetes pequeños, en lugar de hacer cambios grandes y complejos en un solo commit. Esto permite una mejor organización del historial del repositorio y facilita la identificación de errores y la corrección de problemas. Al hacer cambios atómicos, es más fácil retroceder a un punto anterior del historial del repositorio si algo sale mal.</div></figure><p id="63a72b60-2072-4704-85cd-d6e70edcded8" class="">
+</p><pre id="8fe60308-2786-4f46-8f86-8f3bc1e97dea" class="code"><code>git config --global user.email &quot;tu@email.com&quot;
+git config --global user.name &quot;Tu Nombre&quot;</code></pre><p id="0214f7ae-fb99-42a0-ad50-c4856e161c62" class="">El comando &quot;git config --global user.email&quot; sirve para establecer el correo electrónico asociado con tu cuenta de Git a nivel global en tu computadora. El comando &quot;git config --global <a href="http://user.name/">user.name</a>&quot; sirve para establecer tu nombre de usuario de Git a nivel global en tu computadora.</p><p id="31f6f8a6-c0be-4164-b03c-e28a165feeb4" class="">
+</p><p id="51625669-45da-4ee8-a35c-9890e97e4288" class="">Si por algún motivo te equivocaste en el nombre o email que configuraste al principio, lo puedes modificar de la siguiente manera:</p><pre id="b2c9a56e-252a-47d6-be50-525bc89a1cfa" class="code code-wrap"><code>git config --global --replace-all user.name “Aquí va tu nombre modificado”</code></pre><p id="8a9e77a1-b7c4-4a64-9f4e-50945aa35778" class="">O si lo deseas eliminar y añadir uno nuevo</p><pre id="3efca4ab-b192-46b3-9526-8fb9dce4f71f" class="code code-wrap"><code>git config --global --unset-all user.name :Elimina el nombre del usuario</code></pre><pre id="8beecc42-1742-406d-a087-78efaa692f86" class="code code-wrap"><code>git config --global --add user.name “Aquí va tu nombre”</code></pre><h2 id="b05173aa-309a-40c1-a8a5-f3fa67961bba" class="">Comando para saber nuestra configuración actual de git</h2><p id="8ffac34d-bfda-4f13-adba-1d112f180a43" class="">El comando para saber la configuración actual de Git es:</p><pre id="578ec194-c438-4e32-aeca-0da9ab40a661" class="code code-wrap"><code>git config --list
+</code></pre><h2 id="48155910-71f4-4410-b083-3cce50722d90" class="">Comandos para iniciar tu repositorio con Git</h2><ul id="59138f7e-0081-4725-bf6a-f389b173499e" class="bulleted-list"><li style="list-style-type:disc"><strong>git init</strong>: para inicializar el repositorio git y el staged</li></ul><ul id="a4c7f95d-ce2e-4c3c-a19e-5a8204a417cc" class="bulleted-list"><li style="list-style-type:disc"><strong>git add nombre_del_archivo.txt</strong>: enviar el archivo al staged</li></ul><ul id="a5b82b15-7fa1-4af6-8a6d-1a64af8abc13" class="bulleted-list"><li style="list-style-type:disc"><strong>git status</strong>: ver el estado, si se requiere agregar al starget o si se requiere commit</li></ul><ul id="9d8e34dd-eff0-49f8-b5cb-8091a49a91cc" class="bulleted-list"><li style="list-style-type:disc"><strong>git conf</strong>: para ver las posibles configuraciones</li></ul><ul id="8b22beae-16ff-4d48-97e6-712baa29e20e" class="bulleted-list"><li style="list-style-type:disc"><strong>git conf --list</strong>: para ver la lista de configuraciones hechas</li></ul><ul id="289db936-5c02-42e7-a666-d45b69dc0b2e" class="bulleted-list"><li style="list-style-type:disc"><strong>git conf --list --show-origin</strong>: para mostrar las configuraciones y sus rutas</li></ul><ul id="1f558c4e-195f-4876-bc2a-672fd093a7a5" class="bulleted-list"><li style="list-style-type:disc"><strong>git rm --cached nombre_del_archivo.txt</strong>: para eliminar el archivo del staged(ram)</li></ul><ul id="f7bb2a8d-05cd-45ec-9113-1b597890e2e4" class="bulleted-list"><li style="list-style-type:disc"><strong>git rm nombre_del_archivo.txt</strong>: para eliminar del repositorio</li></ul><ul id="17240fa2-1bb2-4d07-9103-f62051d38a28" class="bulleted-list"><li style="list-style-type:disc"><strong>git commit -m &quot;Texto a guardar con el commit&quot;</strong>: guarda los cambios realizados en el repositorio y los añade al historial de versiones. El mensaje que se añade con -m es una descripción breve y concisa de los cambios realizados en el commit.</li></ul><ul id="626fc480-9ef1-4a7c-827d-fb928d6aa4d3" class="bulleted-list"><li style="list-style-type:disc"><strong>git log nombreArchivo.ext</strong>: para ver el historial de cambios de un archivo específico.</li></ul><ul id="d63c5814-993f-4a1d-8df7-cf48535c7cc0" class="bulleted-list"><li style="list-style-type:disc"><strong>git log --oneline</strong>: para ver el historial de cambios de un archivo con información resumida en una sola línea.</li></ul><p id="668bc212-fdc9-4204-bdd0-2c3e5cc0726a" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="36e621b6-eeb7-465f-980f-32eca20eadfb"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Es importante escribir mensajes de commit descriptivos y significativos que expliquen los cambios que se hicieron en el repositorio. Esto ayuda a otros colaboradores a entender el progreso del proyecto y a mantener una historia clara y ordenada del repositorio.</div></figure><p id="4d002c83-faba-42fc-8321-84160d490487" class="">En Linux, la diferencia entre usar un solo guión y dos guiones en un comando generalmente es que un solo guión se utiliza para indicar una opción corta, mientras que dos guiones se utilizan para indicar una opción larga. Por ejemplo, si un comando tiene una opción corta &quot;-a&quot; y una opción larga &quot;--all&quot;, para usar la opción corta se escribiría &quot;-a&quot; después del comando, mientras que para usar la opción larga se escribiría &quot;--all&quot;. Un guión para las letras y dos guiones para las palabras.</p><p id="607e27b7-cd37-4f4a-ba83-9d23de13708d" class="">Cuando Git devuelve &quot;HEAD -&gt; master&quot;, significa que la rama actual a la que está apuntando el encabezado (HEAD) es la rama &quot;master&quot;. Esto se utiliza para indicar al usuario qué rama está actualmente activa en el repositorio. En otras palabras, HEAD es un puntero que indica en qué punto del historial del repositorio se encuentra actualmente el usuario, y &quot;master&quot; es el nombre de la rama a la que apunta ese punto en el historial.</p><h1 id="c35a09d7-e6c1-4c35-b7c5-dca4bee1188e" class="block-color-brown_background">ANALIZAR CAMBIOS EN LOS ARCHIVOS DE TU PROYECTO CON GIT</h1><p id="cfe575d1-abf7-42a6-afb9-a6066e424875" class="">El comando <code><strong>git show</strong></code> nos muestra los cambios que han existido sobre un archivo y es muy útil para detectar cuándo se produjeron ciertos cambios, qué se rompió y cómo lo podemos solucionar. Pero podemos ser más detallados.</p><p id="24b286ad-4f64-4a19-a54e-2a1ed48d62d6" class="">Si queremos ver la diferencia entre una versión y otra, no necesariamente todos los cambios desde la creación del archivo, podemos usar el comando <code><strong>git diff commitA commitB</strong></code>.</p><p id="3345a5de-c5c2-48b1-a18f-0e1cd69aaca8" class="">Un ejemplo del comando git diff sería:</p><pre id="498fac8e-cf99-4485-a44c-5a80f1ae6e9f" class="code code-wrap"><code>git diff HEAD~2 HEAD~1
+</code></pre><p id="8155bddc-2aa0-492f-91c7-63d42ada7113" class="">Este comando mostraría la diferencia entre el penúltimo commit y el último commit. Es decir, estaría comparando los cambios realizados en el segundo commit anterior al actual (HEAD~2) con los cambios realizados en el commit anterior al actual (HEAD~1).</p><p id="863dc779-0730-4b3d-ac04-61d2d500d529" class="">Recuerda que puedes obtener el ID de tus commits con el comando <code><strong>git log</strong></code>.</p><p id="56c0b370-11ae-4673-85c7-441c26736d6d" class="">
+</p><h2 id="f4e4aff1-12c6-46ee-bef4-068ec9cb9cd6" class="">Comandos para analizar cambios en GIT</h2><ul id="f287fd23-6901-4508-8fb7-397f8845752e" class="bulleted-list"><li style="list-style-type:disc"><strong>git add nombre_de_archivo.extensión</strong>: agregar el archivo al repositorio</li></ul><ul id="9502481f-5666-4a2d-b55c-bbe1eefc494b" class="bulleted-list"><li style="list-style-type:disc"><strong>git commit -m “Mensaje”</strong>: Agregamos los cambios para el repositorio</li></ul><ul id="037f5fcf-63e7-4f63-8d0a-49b00f89fcc3" class="bulleted-list"><li style="list-style-type:disc"><strong>git add</strong>: Agregar los cambios de la carpeta en la que nos encontramos agregar todo</li></ul><ul id="9fb35f1b-3457-4f95-b4bf-071ca77b9dc1" class="bulleted-list"><li style="list-style-type:disc"><strong>git status</strong>: visualizar cambios</li></ul><ul id="34bc0a99-6464-4132-af50-e1d72c4d84c1" class="bulleted-list"><li style="list-style-type:disc"><strong>git log nombre_de_archivos.extensión</strong>: histórico de cambios con detalles</li></ul><ul id="0e533d2f-e98f-4e01-9a5a-1c045171aa2e" class="bulleted-list"><li style="list-style-type:disc"><strong>git push</strong>: envía a otro repositorio remoto lo que estamos haciendo</li></ul><ul id="aea1c0c2-3542-47c5-9432-42e7a6f97eb2" class="bulleted-list"><li style="list-style-type:disc"><strong>git pull</strong>: traer repositorio remoto</li></ul><ul id="215b6814-5b24-4b2b-a034-fe4bf9c3e2e3" class="bulleted-list"><li style="list-style-type:disc"><strong>ls</strong>: listado de carpetas en donde me encuentro. Es decir, como emplear dir en windows.</li></ul><ul id="c4b2575e-5707-4740-aff0-d9551a640d80" class="bulleted-list"><li style="list-style-type:disc"><strong>pwd</strong>: ubicación actual</li></ul><ul id="b90b84db-f917-449c-bb53-5a77103369fa" class="bulleted-list"><li style="list-style-type:disc"><strong>mkdir</strong>: make directory nueva carpeta</li></ul><ul id="2497a017-ce36-4e64-a2eb-5f2707986732" class="bulleted-list"><li style="list-style-type:disc"><strong>touch archivo.extensión</strong>: crear archivo vacío</li></ul><ul id="c65d298c-833d-4897-bcfe-494669b1157c" class="bulleted-list"><li style="list-style-type:disc"><strong>cat archivo.extensión</strong>: muestra el contenido del archivo</li></ul><ul id="33ac38ee-ac3f-4d83-ba19-e58f22e77960" class="bulleted-list"><li style="list-style-type:disc"><strong>history</strong>: historial de comandos utilizados durante esa sesión</li></ul><ul id="95920d21-f07e-4b0b-95f5-1bed73ca2c19" class="bulleted-list"><li style="list-style-type:disc"><strong>rm archivo.extensión</strong>: Eliminación de archivo</li></ul><ul id="841b85c2-6471-45a3-aaef-b8990c0994bd" class="bulleted-list"><li style="list-style-type:disc"><strong>comando --help</strong>: ayuda sobre el comando</li></ul><ul id="34cf6373-6597-4579-9f96-e574704e61e2" class="bulleted-list"><li style="list-style-type:disc"><strong>git checkout</strong>: traer cambios realizados</li></ul><ul id="9933711e-da50-4aa5-8be2-01b8ab2923da" class="bulleted-list"><li style="list-style-type:disc"><strong>git rm --cached archivo.extensión</strong>: se utiliza para devolver el archivo que se tiene en ram. Cuando escribimos <code>git add</code>, lo devuelve a estado natural mientras está en <em>staging</em>.</li></ul><ul id="9acd02e1-898a-44ef-a360-9a4d14fc22df" class="bulleted-list"><li style="list-style-type:disc"><strong>git config --list</strong>: muestra la lista de configuración de git</li></ul><ul id="51197eff-c8ce-47e7-bbcc-0e4184e22bd4" class="bulleted-list"><li style="list-style-type:disc"><strong>git config --list --show-origin</strong>: rutas de acceso a la configuración de git</li></ul><ul id="ab64402c-fc4a-4682-a0a1-17a1466f3f18" class="bulleted-list"><li style="list-style-type:disc"><strong>git log archivo.extensión</strong>: muestra la historia del archivo</li></ul><p id="9e12550c-3838-45bd-b291-c01466c14221" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="64527e1d-3263-4b2f-80af-bfed20c716c1"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Si no indicamos un mensaje al hacer commit, se abrirá automáticamente un editor de texto en la terminal. Por defecto, Git utiliza un editor llamado VIM para esto. A continuación, se detallan algunos comandos básicos de VIM:
+
+Para insertar texto en el archivo, presione la tecla <code>i</code> (modo insertar)<ul id="20940636-18b2-40cf-9345-ad52a7e836dc" class="bulleted-list"><li style="list-style-type:disc">Para guardar los cambios, presione la tecla <code>Esc</code> (modo normal) y escriba <code>:w</code> (escribir)</li></ul><ul id="91d85a6c-c9e5-4a78-8e96-da9117a70975" class="bulleted-list"><li style="list-style-type:disc">Para salir de VIM, presione la tecla <code>Esc</code> (modo normal) y escriba <code>:q</code> (salir)</li></ul><ul id="f0a08908-20c0-496f-93e4-1ec21ec988a0" class="bulleted-list"><li style="list-style-type:disc">Para guardar y salir de VIM, presione la tecla <code>Esc</code> (modo normal) y escriba <code>:wq</code> (escribir y salir)</li></ul><ul id="c44bb579-44ea-4817-a842-fa49a970db9f" class="bulleted-list"><li style="list-style-type:disc">Si ha realizado cambios en el archivo pero no desea guardarlos, presione la tecla <code>Esc</code> (modo normal) y escriba <code>:q!</code> (salir sin guardar)</li></ul><p id="4f6623b6-a7cb-4a26-ae84-e22f25fd9471" class="">Recuerde que VIM puede ser intimidante al principio, pero es una herramienta muy poderosa para editar y manipular archivos de texto en la línea de comandos.</p></div></figure><p id="479f7a37-37b8-4518-8acf-20d4e1d73500" class="">
+</p><h1 id="6138cd43-1559-40b9-ba9a-15479421977e" class="">¿QUÉ ES EL STAGING?</h1><p id="bea75680-9fea-4809-9404-9a60c47a88eb" class="">El staging es el lugar donde se guardan temporalmente los cambios, para luego ser llevados definitivamente al repositorio. El repositorio es el lugar donde se guardan todos los registros de los cambios realizados a los archivos.</p><p id="07f1d371-cf82-4d7f-be16-68fda42cc3b1" class="">Para iniciar un repositorio, o sea, activar el sistema de control de versiones de <a href="https://platzi.com/clases/1557-git-github/20215-que-es-git/">Git</a> en tu proyecto, solo debes ejecutar el comando <code>git init</code>.</p><h2 id="160e4e54-a234-4149-b2a9-aa393e1a56e6" class="">¿Qué es el área de staging?</h2><p id="bd492c6d-f03d-462d-8d8e-920f871ce718" class="">El área de staging se puede ver como un limbo donde nuestros archivos están por ser enviados al repositorio o ser regresados a la carpeta del proyecto.</p><h2 id="631ef102-864f-40f5-be78-768efcd2c4ec" class="">¿Qué es git init?</h2><p id="d2061373-ea55-444b-b684-27d8fb5bf796" class=""><code>git init</code>es el comando que activa git en nuestro proyecto creando un espacio en memoria RAM llamado staging y una carpeta .git.</p><p id="381ab424-8416-4fa3-8278-ccab5aabaff8" class="">Este comando se encargará de dos cosas: primero, crear una carpeta <code>.git</code>, donde se guardará toda la base de datos con cambios atómicos de nuestro proyecto; segundo, crear un área que conocemos como <strong>staging</strong>, que guardará temporalmente nuestros archivos (cuando ejecutemos un comando especial para eso) y nos permitirá, más adelante, guardar estos cambios en el repositorio (también con un comando especial).</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="96cbb41b-82a5-4be5-b92a-0697cb2978c2"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Es importante mencionar que el repositorio que se crea por defecto cuando se inicializa un nuevo repositorio de Git se denomina &quot;master&quot;. Esta es la rama principal en la que se trabajará en el proyecto. Es posible crear otras ramas para trabajar en paralelo en diferentes aspectos del proyecto, pero la rama &quot;master&quot; es la que se considera como la versión más estable y completa del proyecto en todo momento. Para cambiar el nombre de la rama &quot;master&quot; o crear nuevas ramas, se pueden utilizar comandos de Git como &quot;git branch&quot; y &quot;git checkout&quot;.</div></figure><figure id="bbd758ac-d84e-4a3a-8003-d5f888404383" class="image"><a href="CURSO%20PROFESIONAL%20DE%20GIT%20Y%20GITHUB%203a95e7b0f5f94b9dadf9f6a3529ae28c/Untitled%201.png"><img style="width:897px" src="CURSO%20PROFESIONAL%20DE%20GIT%20Y%20GITHUB%203a95e7b0f5f94b9dadf9f6a3529ae28c/Untitled%201.png"/></a></figure><h2 id="6e58390a-343a-4f9d-b579-75e4cbf8f343" class="">Cómo funciona el staging y el repositorio: ciclo básico de trabajo en git:</h2><p id="42af0de6-ffd1-43d9-a206-15a43953192f" class="">El flujo de trabajo básico en git es algo así:</p><ol type="1" id="05bb9d7c-53e7-4e96-9267-94de62381d7e" class="numbered-list" start="1"><li>Modificas una serie de archivos en tu directorio de trabajo.</li></ol><ol type="1" id="4989bb60-8956-4c72-bc4d-208a1142c162" class="numbered-list" start="2"><li>Preparas los archivos, añadiéndolos a tu área de preparación (staging).</li></ol><ol type="1" id="bab6ec49-a07b-47f1-b820-5c9b862f7040" class="numbered-list" start="3"><li>Confirmas los cambios (commit), lo que toma los archivos tal y como están en el área de preparación y almacena esa copia instantánea de manera permanente en tu directorio de git.</li></ol><p id="f66ea063-5f5f-4c33-83d0-d68e916d0729" class="">Veamos a detalle las 3 secciones principales que tiene un proyecto en git.</p><h3 id="206daf38-40b7-4c81-9991-1e9fe2f42517" class="">Working directory</h3><p id="716e4875-d68f-43e5-abee-f24b2b408231" class="">El <em>working directory</em> es una copia de una versión del proyecto. Estos archivos se sacan de la base de datos comprimida en el directorio de git y se colocan en el disco para que los puedas usar o modificar.</p><h3 id="7a4c1d14-a046-4f92-93b5-c94272efd75a" class="">Staging area</h3><p id="53c7c410-0b14-488b-ab10-6fee44c2abf7" class="">Es un área que almacena información acerca de lo que va a ir en tu próxima confirmación. A veces se le denomina índice (<em>index</em>).</p><h3 id="7a818d54-3f75-412a-b1ff-11ad7be3d0ef" class="">.git directory (repository)</h3><p id="28f48eb2-a5df-44d5-ad05-e2bdc4bdd0f6" class="">En el <em>repository</em> se almacenan los metadatos y la base de datos de los objetos para tu proyecto. Es la parte más importante de git (carpeta .git) y es lo que se copia cuando clonas un repositorio desde otra computadora.</p><figure id="633e4bc5-b2e7-4e71-b065-86baf0073eb8" class="image"><a href="CURSO%20PROFESIONAL%20DE%20GIT%20Y%20GITHUB%203a95e7b0f5f94b9dadf9f6a3529ae28c/Untitled%202.png"><img style="width:1101px" src="CURSO%20PROFESIONAL%20DE%20GIT%20Y%20GITHUB%203a95e7b0f5f94b9dadf9f6a3529ae28c/Untitled%202.png"/></a></figure><h2 id="c70123f4-130e-422a-bb6b-f333daca247f" class=""><strong>Ciclo de vida o estados de los archivos en git</strong></h2><p id="4615e38d-7e20-4b19-9b5f-a8039600c3fa" class="">Cuando trabajamos con git, nuestros archivos pueden vivir y moverse entre 4 diferentes estados (cuando trabajamos con repositorios remotos pueden ser más estados, pero lo estudiaremos más adelante):</p><h3 id="c7b781f1-c5b0-4410-a18a-3462c5deafe4" class=""><strong>Archivos tracked</strong></h3><p id="a9c3c18a-713c-4df4-ae10-fb14a1f45c12" class="">Son los archivos que viven dentro de git, no tienen cambios pendientes y sus últimas actualizaciones han sido guardadas en el repositorio gracias a los comandos <code>git add</code> y <code>git commit</code>.</p><h3 id="d4ac1db8-4b36-467f-8646-6a7e3cd44682" class=""><strong>Archivos staged</strong></h3><p id="1811c7b5-a83c-4b10-bc4c-881391ca6d8e" class="">Son archivos en staging. Viven dentro de git y hay registro de ellos porque han sido afectados por el comando <code>git add</code>, aunque no sus últimos cambios. Git ya sabe de la existencia de estos últimos cambios, pero todavía no han sido guardados definitivamente en el repositorio porque falta ejecutar el comando <code>git commit</code>.</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="5177c073-8153-4062-9882-a9cdd5b0bb8b"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><strong>Git stash</strong>: guarda cambios temporalmente
+
+Git stash es una herramienta que permite guardar temporalmente los cambios en un repositorio Git, para poder trabajar en otra tarea o rama sin perder los cambios actuales. Los cambios se guardan en una pila de cambios temporales, y se pueden recuperar en cualquier momento.</div></figure><p id="c6bbe603-b1f3-4387-a586-e3a92ecf0e42" class="">
+</p><h3 id="f84520ba-748c-4e90-84ec-d68a861045a5" class=""><strong>Archivos unstaged</strong></h3><p id="8deaf399-102e-4fbb-87f4-1adc3cd98c19" class="">Entiéndelos como archivos <em>“tracked</em> pero <em>unstaged”</em>. Son archivos que viven dentro de git pero no han sido afectados por el comando <code>git add</code> ni mucho menos por <code>git commit</code>. Git tiene un registro de estos archivos, pero está desactualizado, sus últimas versiones solo están guardadas en el disco duro.</p><h3 id="6d2e1825-c7f0-4a37-bbbe-cc129c91ec1d" class=""><strong>Archivos untracked</strong></h3><p id="bd08b59b-3c81-46b8-acb4-742706e010ef" class="">Son archivos que NO viven dentro de git, solo en el disco duro. Nunca han sido afectados por <code>git add</code>, así que git no tiene registros de su existencia.</p><p id="350488e2-9161-49bb-82fc-0b116ee9e172" class="">Recuerda que hay un caso muy raro donde los archivos tienen dos estados al mismo tiempo: staged y untracked. Esto pasa cuando guardas los cambios de un archivo en el área de staging (con el comando <code>git add</code>), pero antes de hacer commit para guardar los cambios en el repositorio haces nuevos cambios que todavía no han sido guardados en el área de staging.</p><h2 id="7a4ba121-c628-4ae0-81fc-720afc7184fc" class=""><strong>Comandos para mover archivos entre los estados de Git</strong></h2><p id="3e68bc57-78f9-46f9-b7e2-50ae97fff779" class="">Estos son los comandos más importantes que debes conocer:</p><h3 id="62a7461c-05ac-4cea-999a-c95efcdbbaaf" class="">Git status</h3><p id="b7a867ef-1b82-45c6-89d6-110d1f358131" class=""><code><strong>git status</strong></code> nos permite ver el estado de todos nuestros archivos y carpetas.</p><h3 id="cd45670c-69ce-4582-b9c8-caa720b6287f" class="">Git add</h3><p id="c9ce8fe4-adca-452a-87a9-5d677a2ae2a6" class=""><code><strong>git add</strong></code> nos ayuda a mover archivos del untracked o unstaged al estado staged. Podemos usar <code>git nombre-del-archivo-o-carpeta</code> para añadir archivos y carpetas individuales o <code>git add -A</code> para mover todos los archivos de nuestro proyecto (tanto untrackeds como unstageds).</p><h3 id="a82c3861-a05d-4892-88e9-1b93b4b27ed1" class="">G<strong>it reset HEAD</strong></h3><p id="438287f4-425c-4186-b703-29a97406b3c3" class="">Nos ayuda a sacar archivos del estado staged para devolverlos a su estado anterior. Si los archivos venían de unstaged, vuelven allí. Y lo mismo se venían de untracked.</p><h3 id="a5898cc2-0906-44ee-be2c-f16e15de0774" class="">G<strong>it commit</strong></h3><p id="026bdb43-576a-40b8-82d5-a4df9060a638" class="">Nos ayuda a mover archivos de unstaged a tracked. Esta es una ocasión especial, los archivos han sido guardados o actualizados en el repositorio. Git nos pedirá que dejemos un mensaje para recordar los cambios que hicimos y podemos usar el argumento <code>m</code> para escribirlo (<code>git commit -m &quot;mensaje&quot;</code>).</p><h3 id="e754841f-8c38-4052-843c-cf8d67495247" class="">G<strong>it rm</strong></h3><p id="923623ad-3b8e-4b4f-8718-56504a5d7c44" class="">Este comando necesita alguno de los siguientes argumentos para poder ejecutarse correctamente:</p><ul id="0df8624c-33ab-4e98-b92f-a8d3b215c520" class="bulleted-list"><li style="list-style-type:disc"><code>git rm --cached</code>: mueve los archivos que le indiquemos al estado untracked.</li></ul><ul id="9fcc751b-606b-4fc3-8d8a-adf07a80fad3" class="bulleted-list"><li style="list-style-type:disc"><code>git rm --force</code>: elimina los archivos de git y del disco duro. Git guarda el registro de la existencia de los archivos, por lo que podremos recuperarlos si es necesario (pero debemos usar comandos más avanzados).</li></ul><h1 id="aebadb21-43e7-4c4f-b144-7b63f067fa6c" class="">¿QUÉ ES BRANCH (RAMA) Y CÓMO FUNCIONA UN MERGE EN GIT?</h1><p id="c04453b7-f502-4104-9cc1-be3b158f24f0" class="">Una <strong>rama o branch</strong> es una versión del código del proyecto sobre el que estás trabajando. Estas ramas ayudan a mantener el orden en el control de versiones y manipular el código de forma segura.</p><p id="3d597a5a-9fed-44f3-b63e-7dd99a80d24e" class="">En otras palabras, un branch o rama en <a href="https://platzi.com/clases/1557-git-github/20215-que-es-git/">Git</a> es una rama que proviene de otra. Imagina un árbol, que tiene una rama gruesa, y otra más fina, en la rama más gruesa tenemos los commits principales y en la rama fina tenemos otros commits que pueden ser de <code>hotfix</code>, <code>devlopment</code> entre otros.ㅤ</p><figure id="450ba061-58f7-4cbd-bae6-16bb954b840c" class="image"><a href="CURSO%20PROFESIONAL%20DE%20GIT%20Y%20GITHUB%203a95e7b0f5f94b9dadf9f6a3529ae28c/Untitled%203.png"><img style="width:1413px" src="CURSO%20PROFESIONAL%20DE%20GIT%20Y%20GITHUB%203a95e7b0f5f94b9dadf9f6a3529ae28c/Untitled%203.png"/></a></figure><h2 id="dc3c3295-594b-4f77-8d4c-14c202e13737" class="">Clases de branches o ramas en Git</h2><p id="b911f8ba-76b9-4bf4-b5e5-759842b2c368" class="">Estas son las ramas base de un proyecto en Git:</p><h3 id="a5486224-43d9-4de7-b312-c795bb1bd429" class="">1. Rama main (Master)</h3><p id="c3aad715-2f0b-47b0-8842-6d2980454082" class="">Por defecto, el proyecto se crea en una rama llamada Main (anteriormente conocida como Master). Cada vez que añades código y guardas los cambios, estás haciendo un commit, que es añadir el nuevo código a una rama. Esto genera nuevas versiones de esta rama o branch, hasta llegar a la versión actual de la rama Main.</p><h3 id="e09b7276-27d2-4758-adc6-e4eb19e01d9f" class="">2. Rama development</h3><p id="5aea63e1-4845-477c-84a7-1e2de55dc4b8" class="">Cuando decides hacer experimentos, puedes generar ramas experimentales (usualmente llamadas development), que están basadas en alguna rama main, pero sobre las cuales puedes hacer cambios a tu gusto sin necesidad de afectar directamente al código principal.</p><h3 id="06960e34-ea33-4a86-9df9-1f1b6166cc4a" class="">3. Rama hotfix</h3><p id="842a5c48-40c1-41c3-853d-d843ef9f4989" class="">En otros casos, si encuentras un bug o error de código en la rama Main (que afecta al proyecto en producción), tendrás que crear una nueva rama (que usualmente se llaman bug fixing o hot fix) para hacer los arreglos necesarios. Cuando los cambios estén listos, los tendrás que fusionar con la rama Main para que los cambios sean aplicados. Para esto, se usa un comando llamado <em>Merge</em>, que mezcla los cambios de la rama que originaste a la rama Main.</p><p id="43da2e53-bdd3-4410-81aa-d7e2610921ac" class=""><strong>Todos los commits se aplican sobre una rama</strong>. Por defecto, siempre empezamos en la rama Main (pero puedes cambiarle el nombre si no te gusta) y generamos nuevas ramas, a partir de esta, para crear flujos de trabajo independientes.</p><h2 id="237e1e71-f26d-480e-84e1-e8504edb5a35" class="">Cómo crear un branch o rama en Git</h2><p id="5d4aa5ea-6e68-4ea9-a325-a670082fe314" class="">El comando git branch permite crear una rama nueva. Si quieres empezar a trabajar en una nueva función, puedes crear una rama nueva a partir de la rama master con git branch new_branch. Una vez creada, puedes usar git checkout new_branch para cambiar a esa rama.</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="7c1ea76b-97d9-4ad4-a533-c7a25d9c709f"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Para crear y cambiar a una nueva rama en Git en un solo comando, se puede utilizar la siguiente sintaxis:<pre id="871d22bb-ec35-46a8-84ed-7aef4d2650be" class="code code-wrap"><code>git checkout -b nombre_de_la_rama
+</code></pre><p id="3fbf9ebf-c0b3-4a25-b8fb-f0cbcb9ef868" class="">Esto creará una nueva rama con el nombre especificado y cambiará el estado actual del repositorio a esa rama. Si la rama ya existe, este comando simplemente cambiará el estado actual del repositorio a esa rama.</p></div></figure><p id="18dedc1e-f9bd-4527-a009-6455b4f67524" class="">Recuerda que todas tus versiones salen de la rama principal o Master y de allí puedes tomar una versión específica para crear otra rama de versiones.</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="129e7c91-f9e4-4766-a755-09beef092921"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">git remote -v
+
+<p id="f8714eab-c693-4fbc-90e1-4398f34db7be" class="">El comando &quot;git remote -v&quot; se utiliza para mostrar la lista de los repositorios remotos configurados en un repositorio Git local. Proporciona información sobre los nombres y las URLs de los repositorios remotos asociados con el repositorio Git en el que se ejecuta el comando.</p><p id="d8af3490-cd09-4d7e-a07a-5f8d0ba8b907" class="">La salida de &quot;git remote -v&quot; muestra dos columnas: la primera columna muestra el nombre del repositorio remoto, y la segunda columna muestra la URL del repositorio remoto. Generalmente, los nombres predeterminados de los repositorios remotos son &quot;origin&quot; para el repositorio remoto principal y &quot;upstream&quot; para un repositorio remoto adicional.</p><p id="7b1c6958-91e8-43d6-841b-9ed54d73ee5c" class="">Aquí hay un ejemplo de cómo se vería la salida del comando &quot;git remote -v&quot;:
+</p><pre id="5d4d1ef2-6e04-4b9d-b7fb-4540a66e7822" class="code code-wrap"><code>
+origin  https://github.com/tu-usuario/tu-repositorio.git (fetch)
+origin  https://github.com/tu-usuario/tu-repositorio.git (push)</code></pre></div></figure><h2 id="7e36476c-52ad-4925-a8d7-42304668edcd" class="">Cómo hacer merge</h2><p id="365b0b84-16af-4a5b-955a-d73ef3803b89" class="">Producir una nueva rama se conoce como <strong>Checkout</strong>. Unir dos ramas lo conocemos como <strong>Merge</strong>.</p><p id="e4b958e0-606b-4414-a487-2520f5264bb8" class="">Cuando haces merge de estas ramas con el código principal, su código se fusiona originando una nueva versión de la rama master (o main) que ya tiene todos los cambios que aplicaste en tus experimentos o arreglos de errores.</p><p id="b200b776-df9a-4d80-a1b0-f9f115ff6462" class="">Podemos generar todas las ramas y commits que queramos. De hecho, podemos aprovechar el registro de cambios de Git para producir ramas, traer versiones viejas del código, arreglarlas y combinarlas de nuevo para mejorar el proyecto.</p><p id="ca45b2f6-c974-4a2d-bc30-162609a181f3" class="">Solo ten en cuenta que combinar estas ramas (<a href="https://platzi.com/clases/1557-git-github/19939-funcion-de-ramas-con-git-mer-7/">hacer “merge”</a>) puede generar conflictos. Algunos archivos pueden ser diferentes en ambas ramas. Git es muy inteligente y puede intentar unir estos cambios automáticamente, pero no siempre funciona. En algunos casos, somos nosotros los que debemos resolver estos conflictos <em>a mano</em>.</p><h1 id="bedd8f02-866c-460e-866b-5b741dc861f7" class="">VOLVER EN EL TIEMPO EN NUESTRO REPOSITORIO UTILIZANDO RESET Y CHECKOUT</h1><p id="9638d844-f05e-4661-9960-ef4be72a0cda" class="">El comando <code><strong>git checkout</strong></code> + <code>ID del commit</code> nos permite viajar en el tiempo. Podemos volver a cualquier versión anterior de un archivo específico o incluso del proyecto entero. Esta también es la forma de crear ramas y movernos entre ellas.</p><p id="f25b7809-d2a9-4d81-ae0d-80e0e53bed78" class="">También hay una forma de hacerlo un poco más “ruda”: usando el comando <code>git reset</code>. En este caso, no solo “volvemos en el tiempo”, sino que borramos los cambios que hicimos después de este commit.</p><p id="21cb025d-9c52-46c9-8d84-9a3a49dc94cd" class="">Hay dos formas de usar <code>git reset</code>: con el argumento <code>--hard</code>, borrando toda la información que tengamos en el área de staging (y perdiendo todo para siempre). O, un poco más seguro, con el argumento <code>--soft</code>, que mantiene allí los archivos del área de staging para que podamos aplicar nuestros últimos cambios pero desde un commit anterior.</p><p id="591c72f2-162e-4bd6-b493-e2515e50d504" class="">
+</p><h2 id="a7e75594-755b-4d16-8ffa-f7e7f9806021" class="">¿Cómo funciona Git Reset en tu flujo de trabajo?</h2><p id="6d9b95cd-fd47-4884-8178-df1dbd699c21" class=""><code>git reset</code> permite moverte entre diferentes commits para deshacer o rehacer cambios. Git guarda todos lo nuevo del repositorio como commits, que son instantáneas del estado del código en un momento dado y existen variaciones de este comando.</p><h3 id="2d868b3a-c08c-422c-8bf7-a2ab17b9ac1d" class="">Variaciones de Git Reset</h3><ul id="73a7dfbe-6f57-4c3c-b50f-c322c78f2a84" class="bulleted-list"><li style="list-style-type:disc"><code>git reset --soft</code>: Borra el historial y los registros de Git de commits anteriores, pero guarda los cambios en Staging para aplicar las últimas actualizaciones a un nuevo commit. <mark class="highlight-orange">Elimina solamente los commits pero el archivo se queda tal cual.</mark></li></ul><ul id="9f72643f-7f0c-4949-8e8f-982e5ca12f75" class="bulleted-list"><li style="list-style-type:disc"><code>git reset --hard</code>: Deshace todo, absolutamente todo. Toda la información de los commits y del área de staging se elimina del historial.</li></ul><ul id="f719e2b9-0b9b-4459-8cfb-2c3467637e69" class="bulleted-list"><li style="list-style-type:disc"><code>git reset --mixed</code>: Borra todo, exactamente todo. Toda la información de los commits y del área de staging se elimina del historial.</li></ul><ul id="3761b364-3628-4f33-a0c3-b8649ee65ae7" class="bulleted-list"><li style="list-style-type:disc"><code>git reset HEAD</code>: El comando <code>git reset</code> saca archivos del área de staging sin borrarlos ni realizar otras acciones. Esto impide que los últimos cambios en estos archivos se envíen al último commit. Podemos incluirlos de nuevo en staging con <code>git add</code> si cambiamos de opinión.</li></ul><p id="ed33453e-cfdc-47b9-994c-22111f110b11" class="">Ten en cuenta que, si deshaces commits en un repositorio compartido en GitHub, estarás cambiando su historia y esto puede causar problemas de sincronización con otros colaboradores.</p><p id="3fbe299c-def9-417a-842d-15e957af447f" class="">
+</p><h2 id="e308429d-dba9-46ef-8ac3-825b7e130297" class="">Git reset vs. Git rm</h2><p id="4aad3343-71b6-4aea-a9f7-0a0cd0675761" class="">
+</p><figure id="c8f200f0-da0e-4a1a-a5b5-13fe9fc41c51" class="image"><a href="CURSO%20PROFESIONAL%20DE%20GIT%20Y%20GITHUB%203a95e7b0f5f94b9dadf9f6a3529ae28c/Untitled%204.png"><img style="width:1133px" src="CURSO%20PROFESIONAL%20DE%20GIT%20Y%20GITHUB%203a95e7b0f5f94b9dadf9f6a3529ae28c/Untitled%204.png"/></a></figure><h2 id="5116511b-2e21-4903-9937-70cb7e9a44e1" class="">Git reset</h2><p id="a5c8037c-ee23-430d-beab-deb6702380e0" class="">El comando <code>git reset</code> es una herramienta poderosa que te permite deshacer o revertir cambios en tu repositorio de Git. Lo puedes ejecutar de tres maneras diferentes, con las líneas de comando <code>--soft, --mixed y --hard</code>. </p><p id="d0856ed5-74a0-4e3e-9c97-21ae8912c54e" class="">Pero no como <code>git checkout</code> que nos deja ir, mirar, pasear y volver. Con <code>git reset</code> volvemos al pasado sin la posibilidad de volver al futuro. Borramos la historia y la debemos sobreescribir. No hay vuelta atrás.</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="c1e58848-cdbc-4cf8-b4f6-9b0396090167"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">El comando <code>git revert</code> se utiliza para deshacer un commit anterior en el historial del repositorio. A diferencia de <code>git reset</code>, que elimina los commits anteriores y los cambios realizados en ellos, <code>git revert</code> crea un nuevo commit que deshace los cambios del commit anterior. Es una forma segura de deshacer cambios en un repositorio compartido, ya que no modifica el historial existente y permite a otros colaboradores ver que se ha revertido un commit específico. Para utilizar <code>git revert</code>, se debe especificar el hash del commit que se desea deshacer.</div></figure><h2 id="8450d6a5-ac62-41d2-9e6b-374acf00a752" class="">Git rm</h2><p id="e4d31e0d-88bc-4830-9309-55086c7a5f64" class="">El comando <code>git rm</code> se utiliza para eliminar archivos de un repositorio de Git. </p><p id="88c77342-bf82-4d86-89e0-0f355676891c" class="">Es importante tener en cuenta que al eliminar un archivo con <code>git rm</code>, se realiza un cambio en el historial de versiones del repositorio. Si se realiza un commit después de usar <code>git rm</code>, el archivo eliminado ya no aparecerá en el historial de versiones y no se podrá recuperar. Por lo tanto, siempre es recomendable hacer una copia de seguridad de los archivos antes de eliminarlos con <code>git rm</code>.</p><p id="eaa8e964-78f8-44db-8731-afaaa2265081" class=""><strong>Sintaxis del comando git rm</strong></p><pre id="a7b4de6d-8b39-4e23-bafa-a5054506c1ac" class="code code-wrap"><code>git rm [opciones] archivo
+</code></pre><p id="5fb0fcf3-7b68-4257-912a-fdf3c6034eaf" class="">El comando <code>git rm</code> se utiliza para eliminar archivos de un repositorio de Git.</p><p id="1e846a21-43e7-4257-acc5-d61858d06bbf" class=""><strong>Ejemplo de uso del comando git rm:</strong></p><p id="42a10eaf-299b-430e-b87f-e1c608f07ca6" class="">Para eliminar un archivo llamado <code>ejemplo.txt</code> del repositorio, se puede utilizar el siguiente comando:</p><pre id="33db45fe-6518-411f-82fc-694158490d34" class="code code-wrap"><code>git rm ejemplo.txt
+</code></pre><p id="6544522a-fae3-4bd0-a8c9-c4ffd3f1cef0" class="">Si se desea eliminar un archivo que ya ha sido agregado al área de staging, se debe utilizar la opción <code>-f</code> para forzar la eliminación:</p><pre id="4cb62bde-6e0f-41d6-a4d6-2fae53211acf" class="code code-wrap"><code>git rm -f ejemplo.txt</code></pre><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="383138be-a181-4506-9086-fc02aa87b7d0"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Se pueden eliminar varios archivos al mismo tiempo con el comando <code>git rm</code>. Simplemente debes escribir los nombres de los archivos separados por un espacio después del comando <code>git rm</code>. Por ejemplo:<pre id="9b288424-7109-49e1-a37a-80d1b30b2ec6" class="code code-wrap"><code>git rm archivo1.txt archivo2.txt archivo3.txt
+</code></pre><p id="4f3ad94c-43c0-4e6d-988f-f8ca88494e64" class="">También puedes usar comodines para eliminar varios archivos que tengan un patrón de nombre similar. Por ejemplo, para eliminar todos los archivos que tengan la extensión <code>.txt</code>, puedes usar el siguiente comando:</p><pre id="c7e675c6-ddf8-4f4d-86bb-94f9dbf72d2f" class="code code-wrap"><code>git rm *.txt
+</code></pre><p id="6999a377-d174-491c-91d8-08ccea6ee481" class="">
+</p><p id="f5b393ef-af21-40d2-b7b4-560252744363" class="">
+</p><p id="d4ba528d-9856-459a-83ee-a5231e6b7dbf" class="">
+</p><p id="1263c48f-9c1e-493a-80d0-1ed758f8a703" class="">
+</p><p id="9d588ecb-5683-4e5e-a4f2-918ea9b43f1d" class="">
+</p></div></figure><h1 id="f3927b0d-3669-4934-aa67-6cc4b569e5d0" class="">FLUJO DE TRABAJO BÁSICO CON UN REPOSITORIO REMOTO</h1><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="2ce97772-0588-40d2-9d5d-8a47583bfcad"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Algunos comandos que pueden ayudar cuando colaboren con proyectos muy grandes de github:
+<ol type="1" id="f73e40e6-865c-4066-865c-bb92b949c7b4" class="numbered-list" start="1"><li>git log --oneline - Te muestra el id commit y el título del commit.</li></ol><ol type="1" id="07e92e79-2656-427f-80a3-c4172e20fd78" class="numbered-list" start="2"><li>git log --decorate- Te muestra donde se encuentra el head point en el log.</li></ol><ol type="1" id="662023ae-aab3-4782-9b01-933681867b98" class="numbered-list" start="3"><li>git log --stat - Explica el número de líneas que se cambiaron brevemente.</li></ol><ol type="1" id="7ffb6339-e5cb-41ea-a64f-643be29bab15" class="numbered-list" start="4"><li>git log -p- Explica el número de líneas que se cambiaron y te muestra que se cambió en el contenido.</li></ol><ol type="1" id="61a65b97-3bf9-4842-be2f-3ab95887076a" class="numbered-list" start="5"><li>git shortlog - Indica que commits ha realizado un usuario, mostrando el usuario y el titulo de sus commits.</li></ol><ol type="1" id="59e3f0c4-f9e5-4774-8e31-419bb4dafc26" class="numbered-list" start="6"><li>git log --graph --oneline --decorate y</li></ol><ol type="1" id="27e4ba35-a40b-49ad-8702-9a4f2bcc0386" class="numbered-list" start="7"><li>git log --pretty=format:&quot;%cn hizo un commit %h el dia %cd&quot; - Muestra mensajes personalizados de los commits.</li></ol><ol type="1" id="00b6f462-8a40-4569-89a9-746d81fd79b2" class="numbered-list" start="8"><li>git log -3 - Limitamos el número de commits.</li></ol><ol type="1" id="12665a9a-a7b9-432a-8d86-ffdfcf228454" class="numbered-list" start="9"><li>git log --after=“2018-1-2” ,</li></ol><ol type="1" id="f35725ba-5918-443d-82bd-9eb17dc69e60" class="numbered-list" start="10"><li>git log --after=“today” y</li></ol><ol type="1" id="3706e4ea-9e63-4046-8a95-2a2408704d44" class="numbered-list" start="11"><li>git log --after=“2018-1-2” --before=“today” - Commits para localizar por fechas.</li></ol><ol type="1" id="5d0673da-1a07-43f9-82a5-6e7297ea556e" class="numbered-list" start="12"><li>git log --author=“Name Author” - Commits realizados por autor que cumplan exactamente con el nombre.</li></ol><ol type="1" id="aa447cca-6ab8-4931-82cb-ccc64e14741f" class="numbered-list" start="13"><li>git log --grep=“INVIE” - Busca los commits que cumplan tal cual está escrito entre las comillas.</li></ol><ol type="1" id="c5f61a9f-0cfb-4567-97a5-93d0d4d5c03b" class="numbered-list" start="14"><li>git log --grep=“INVIE” –i- Busca los commits que cumplan sin importar mayúsculas o minúsculas.</li></ol><ol type="1" id="3fd14589-d5e4-4294-ad8d-c77ab407f556" class="numbered-list" start="15"><li>git log – index.html- Busca los commits en un archivo en específico.</li></ol><ol type="1" id="39080863-2559-4683-8a3b-07057fb05b05" class="numbered-list" start="16"><li>git log -S “Por contenido”- Buscar los commits con el contenido dentro del archivo.</li></ol><ol type="1" id="183de7b8-c9b9-46b1-81b8-07e188751218" class="numbered-list" start="17"><li>git log &gt; log.txt - guardar los logs en un archivo txt</li></ol></div></figure><p id="be9d757b-158e-4a16-8307-269225973f2e" class="">
+</p><p id="45b32d7b-a988-4355-ac6d-a0f68e3bdfe4" class="">Cuando empiezas a trabajar en un entorno local, el proyecto vive únicamente en tu computadora. Esto significa que no hay forma de que otros miembros del equipo trabajen en él.</p><p id="f2b6ecb8-51e2-4010-b963-04e254dbd98d" class="">Para solucionar esto, utilizamos los <strong>servidores remotos</strong>: un nuevo estado que deben seguir nuestros archivos para conectarse y trabajar con equipos de cualquier parte del mundo.</p><p id="9b5d133b-37fa-457e-a75a-d97ceebca584" class="">Estos servidores remotos pueden estar alojados en GitHub, GitLab, BitBucket, entre otros. Lo que van a hacer es guardar el mismo repositorio que tienes en tu computadora y darnos una URL con la que todos podremos acceder a los archivos del proyecto. Así, el equipo podrá descargarlos, hacer cambios y volverlos a enviar al servidor remoto para que otras personas vean los cambios, comparen sus versiones y creen nuevas propuestas para el proyecto.</p><p id="9a2cde6a-56cb-4827-ba1b-633e8d327489" class="">Esto significa que debes aprender algunos nuevos comandos</p><h2 id="20f4ff4d-4158-4fe2-96fa-bb15edccff0d" class="">Comandos para trabajo remoto con GIT</h2><ul id="870b0285-8574-4ac4-8132-023f6a9ea459" class="bulleted-list"><li style="list-style-type:disc"><code><strong>git clone url_del_servidor_remoto</strong></code>: Nos permite descargar los archivos de la última versión de la rama principal y todo el historial de cambios en la carpeta <code>.git</code>.</li></ul><ul id="687f74c0-1108-433e-8806-97693407cf7d" class="bulleted-list"><li style="list-style-type:disc"><code><strong>git push</strong></code>: Luego de hacer <code>git add</code> y <code>git commit</code> debemos ejecutar este comando para mandar los cambios al servidor remoto.</li></ul><ul id="079a3c03-32cb-4c99-91c7-3e0bf1264849" class="bulleted-list"><li style="list-style-type:disc"><code><strong>git fetch</strong></code>: Lo usamos para traer actualizaciones del servidor remoto y guardarlas en nuestro repositorio local (en caso de que hayan, por supuesto).</li></ul><ul id="bceb061f-6c2a-4ad9-ab33-17426f27bcc6" class="bulleted-list"><li style="list-style-type:disc"><code><strong>git merge</strong></code>: También usamos el comando <code>git merge</code> con servidores remotos. Lo necesitamos para combinar los últimos cambios del servidor remoto y nuestro directorio de trabajo.<p id="fef7b9ab-8f95-4ee8-8d9c-c402baaa24e1" class="">El comando <code>git merge</code> se utiliza para combinar los cambios más recientes del servidor remoto con nuestro directorio de trabajo. Es útil cuando trabajamos con servidores remotos en Git.</p></li></ul><ul id="f36c110f-8589-4700-b220-341b2e918f06" class="bulleted-list"><li style="list-style-type:disc"><code><strong>git pull</strong></code>: Básicamente, <code>git fetch</code> y <code>git merge</code> al mismo tiempo.</li></ul><p id="a466a895-d5fe-45c5-aadd-0de5f4380166" class="">Adicionalmente, tenemos otros comandos que nos sirven para trabajar en proyectos muy grandes:</p><ul id="2eb9bef1-b2a9-434f-abf1-0e92907de71e" class="bulleted-list"><li style="list-style-type:disc"><strong>git log --oneline</strong>:Te muestra el id commit y el título del commit.</li></ul><ul id="2a102fc9-f6dd-4fd5-9dc6-4dbf9db6b52d" class="bulleted-list"><li style="list-style-type:disc"><strong>git log --decorate</strong>: Te muestra donde se encuentra el head point en el log.</li></ul><ul id="7e20ec23-b141-4398-8ab3-83fafcefc210" class="bulleted-list"><li style="list-style-type:disc"><strong>git log --stat</strong>: Explica el número de líneas que se cambiaron brevemente.</li></ul><ul id="69820bb0-a12d-447f-b25a-4cefb1daaa7e" class="bulleted-list"><li style="list-style-type:disc"><strong>git log -p</strong>: Explica el número de líneas que se cambiaron y te muestra que se cambió en el contenido.</li></ul><ul id="5658d147-9658-4faa-87fd-af2d4793197f" class="bulleted-list"><li style="list-style-type:disc"><strong>git shortlog</strong>: Indica que commits ha realizado un usuario, mostrando el usuario y el título de sus commits.</li></ul><ul id="d9cdfc34-0e99-4634-86f5-cba95fd19276" class="bulleted-list"><li style="list-style-type:disc"><strong>git log --graph --oneline --decorate</strong> y</li></ul><ul id="b6e6365e-99f3-4926-a482-a614a3bfe282" class="bulleted-list"><li style="list-style-type:disc"><strong>git log --all --graph</strong>:  es un comando utilizado en el control de versiones Git. Muestra un gráfico del historial de confirmaciones, con ramas y fusiones mostradas. </li></ul><ul id="0e7bcf45-3c3b-4b15-907a-922e6b0579f6" class="bulleted-list"><li style="list-style-type:disc"><strong>git log --pretty=format:&quot;%cn hizo un commit %h el dia %cd&quot;</strong>: Muestra mensajes personalizados de los commits.</li></ul><ul id="2b1d093b-e1ae-4cee-b4ab-67b08c411439" class="bulleted-list"><li style="list-style-type:disc"><strong>git log -3</strong>: Limitamos el número de commits.</li></ul><ul id="9b18e69b-f67c-4dc9-9623-6009877cc0a0" class="bulleted-list"><li style="list-style-type:disc"><strong>git log --after=“2018-1-2”</strong></li></ul><ul id="5ebfbea0-a014-4d32-bdcf-67bc1a2a14aa" class="bulleted-list"><li style="list-style-type:disc"><strong>git log --after=“today”</strong> y</li></ul><ul id="0b08c3c8-9100-4cb9-84c5-d74299d2fd09" class="bulleted-list"><li style="list-style-type:disc"><strong>git log --after=“2018-1-2” --before=“today”</strong>: Commits para localizar por fechas.</li></ul><ul id="d1f43060-521e-4751-b2cf-1d2335247a94" class="bulleted-list"><li style="list-style-type:disc"><strong>git log --author=“Name Author”</strong>: Commits hechos por autor que cumplan exactamente con el nombre.</li></ul><ul id="e750c9e8-04b2-4a79-962d-bce23a0aeb90" class="bulleted-list"><li style="list-style-type:disc"><strong>git log --grep=“INVIE”</strong>: Busca los commits que cumplan tal cual está escrito entre las comillas.</li></ul><ul id="eeed4316-13a0-4007-b87f-29d12ff9862b" class="bulleted-list"><li style="list-style-type:disc"><strong>git log --grep=“INVIE” –i</strong>: Busca los commits que cumplan sin importar mayúsculas o minúsculas.</li></ul><ul id="ba0f3ab4-8d2f-45cf-a864-b772ba3acf40" class="bulleted-list"><li style="list-style-type:disc"><strong>git log – index.html</strong>: Busca los commits en un archivo en específico.</li></ul><ul id="84a9a494-1063-40d3-b280-2615f9e29bca" class="bulleted-list"><li style="list-style-type:disc"><strong>git log -S “Por contenido”</strong>: Buscar los commits con el contenido dentro del archivo.</li></ul><ul id="f2693510-2820-4fb4-98cc-00dfb47a9f40" class="bulleted-list"><li style="list-style-type:disc"><strong>git log &gt; log.txt</strong>: guardar los logs en un archivo txt</li></ul><p id="5bf89f54-a439-4cb0-813f-3f5e6780abbc" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="bc2b8e90-13d9-4d46-b701-7c1af1d433cb"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">El comando <code>git commit -am &quot;Texto a introducir&quot;</code> se utiliza para agregar un nuevo commit al repositorio. El argumento <code>a</code> indica que se deben agregar todos los cambios realizados en los archivos que ya han sido añadidos antes al proyecto. El argumento <code>m</code> permite agregar un mensaje al commit para describir los cambios realizados. En resumen, este comando permite agregar un nuevo commit con todos los cambios realizados en los archivos trackeados y agregar un mensaje descriptivo al mismo tiempo. </div></figure><h1 id="220bcc04-d38a-4120-b488-37df8d5ca26e" class="">INTRODUCCIÓN A LAS RAMAS O BRANCHES DE GIT</h1><p id="733ef164-3496-4772-8e35-979ea9c6d32d" class=""><mark class="highlight-yellow_background">IMPORTANTE: Las ramas se van a crear desde la rama en la que se está actualmente.</mark></p><p id="b7794d93-d597-4c0c-8f4b-d0584e54448e" class="">Las ramas <a href="https://platzi.com/clases/1557-git-github/19947-que-es-un-branch-rama-y-como-funciona-un-merge-en-/">(branches) </a>son la forma de hacer cambios en nuestro proyecto sin afectar el flujo de trabajo de la rama principal. Esto porque queremos trabajar una parte muy específica de la aplicación o simplemente experimentar.</p><p id="fdcdace4-3924-45fd-9e36-5a01d8e54018" class="">La cabecera o <code>HEAD</code> representan la rama y el commit de esa rama donde estamos trabajando. Por defecto, esta cabecera aparecerá en el último commit de nuestra rama principal. Pero podemos cambiarlo al crear una rama (<code>git branch rama</code>, <code>git checkout -b rama</code>) o movernos en el tiempo a cualquier otro commit de cualquier otra rama con los comandos (<code>git reset id-commit</code>, <code>git checkout rama-o-id-commit</code>).</p><h2 id="6502d5d6-2e70-45f7-994b-ad4996aa02d6" class="">Cómo funcionan las ramas en GIT</h2><p id="8168296d-8e88-4e51-9756-73d452390678" class="">Las ramas son la manera de hacer cambios en nuestro proyecto sin afectar el flujo de trabajo de la rama principal. Esto porque queremos trabajar una parte muy específica de la aplicación o simplemente experimentar.</p><ul id="a9c7676c-e733-45da-a925-7d173179a666" class="bulleted-list"><li style="list-style-type:disc"><strong>git branch -nombre de la rama-</strong>: Con este comando se genera una nueva rama.</li></ul><ul id="c90f09f6-3488-46d7-98d4-0c74b8ec6bec" class="bulleted-list"><li style="list-style-type:disc"><strong>git checkout -nombre de la rama-</strong>: Con este comando puedes saltar de una rama a otra.</li></ul><ul id="4ed7b495-7220-4af0-8933-e5aac4bfbd74" class="bulleted-list"><li style="list-style-type:disc"><mark class="highlight-yellow_background"><strong>git checkout -b rama</strong></mark><mark class="highlight-yellow_background">: Genera una rama y nos mueve a ella automáticamente, Es decir, es la combinación de git branch y git checkout al mismo tiempo.</mark></li></ul><ul id="41a04918-5440-4d18-a76c-3b82490d1673" class="bulleted-list"><li style="list-style-type:disc"><strong>git reset id-commit</strong>: Nos lleva a cualquier commit no importa la rama, ya que identificamos el id del tag., eliminando el historial de los commit posteriores al tag seleccionado.</li></ul><ul id="030b3d8f-8461-42c7-b690-c9a45e7f5bd8" class="bulleted-list"><li style="list-style-type:disc"><strong>git checkout rama-o-id-commit</strong>: Nos lleva a cualquier commit sin borrar los commit posteriores al tag seleccionado.</li></ul><h1 id="cddb7ac3-f74e-4647-a61d-af8bd73d29b1" class="">FUSIÓN DE RAMAS CON GIT MERGE</h1><p id="8786a586-d367-4229-875c-121fba6c8841" class="">La <strong>fusión en Git</strong> es la forma en que este sistema une un historial bifurcado. El comando <code>git merge</code> permite integrar líneas de desarrollo independientes generadas por <code>git branch</code> en una sola rama. Con este comando, podemos crear un nuevo <em>commit</em> que combina dos ramas o <a href="https://platzi.com/clases/1557-git-github/19947-que-es-un-branch-rama-y-como-funciona-un-merge-en-/">branches</a>: la rama actual y la rama que se indica después del comando.</p><p id="f3b6e35e-b4a0-4b9e-90cc-07e5044a3ebe" class="">Estos comandos de fusión del merge afectan solo a la rama actual y no a la rama de destino. Por lo tanto, te recomendamos utilizar <code>git checkout</code> para seleccionar la rama actual y <code>git branch -d</code> para eliminar la rama de destino obsoleta.</p><h2 id="8afc646b-646f-4983-9fb5-cca287167ee6" class="">Funcionamiento de Git merge</h2><p id="6e5c2338-46e6-43e1-a537-2f22ebcd077c" class="">Git merge fusiona secuencias de confirmaciones en un solo historial, generalmente para combinar dos ramas. Busca una confirmación de base común y genera una confirmación de fusión que representa la combinación de las dos ramas hasta el resultado final.</p><h2 id="cde65a64-69fe-4835-8ed4-0e42f955d030" class="">¿Cómo unir dos ramas en git?</h2><p id="445f3190-7710-486d-8d66-a0e0c7692d1c" class="">Ahora bien, para combinar ramas en tu repositorio local, usa git checkout para cambiar a la rama donde deseas fusionar. Por lo general, esta es la rama principal. Luego, emplea git merge y especifica el nombre de la otra rama que deseas traer a esta rama. Ten en cuenta que esto es una combinación de avance rápido.</p><ol type="1" id="912c43f0-2091-4c55-8a63-ce487de64d36" class="numbered-list" start="1"><li>Usa <code>git checkout</code> para cambiar a la rama donde deseas fusionar.</li></ol><ol type="1" id="c0e68cfc-b529-4ae6-87b7-be1daeaafe62" class="numbered-list" start="2"><li>Emplea <code>git merge</code> y especifica el nombre de la otra rama que deseas traer a esta rama.</li></ol><ol type="1" id="83e34aeb-36b2-4f51-bdbd-80a7d180786b" class="numbered-list" start="3"><li>Eliminamos la rama obsoleta usando <code>git branch -d</code>. (git branch -d nombreRama)</li></ol><h2 id="d4b88b02-0194-40ae-9972-2fc52e4fd34f" class="">¿Cómo realizar un merge en git?</h2><p id="a1216fd3-8629-4ad3-8b76-f0d197b18b33" class="">Para hacer un merge en Git, primero asegúrate de estar en la rama correcta. Después, usa el comando git merge seguido del nombre de la rama que quieres combinar. Por ejemplo, si quieres crear un nuevo commit en la rama master con los cambios de la rama cabecera, usa este comando:</p><ol type="1" id="c79b02c6-7f87-404f-b75f-b0603e6f9e23" class="numbered-list" start="1"><li>Asegúrate de estar en la rama correcta.</li></ol><pre id="216918fa-64cc-4e9e-9d8f-f0404590090f" class="code"><code>git checkout master</code></pre><ol type="1" id="6d06a136-e11a-4155-9e16-3c593c6dc429" class="numbered-list" start="2"><li>Usa el comando &quot;git merge&quot; seguido del nombre de la rama que quieres combinar.</li></ol><pre id="bc7db3c2-0bde-41b1-9614-ee959c315cda" class="code"><code>git merge cabecera</code></pre><p id="2a1683a1-6ccb-4f06-b515-e368ffa993f8" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="b29b7bd5-1f19-4552-99cc-954acf1eed56"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">&quot;git log --graph&quot; es un comando utilizado en el sistema de control de versiones Git para mostrar el historial de commits en una estructura de gráfico, mostrando las diferentes ramas y cómo se fusionan entre sí. También podemos usar git log --oneline --graph</div></figure><p id="3553d307-0e57-4911-9c91-a7115a8c1a8b" class="">También existe una extensión en VS Code que se llama Git Graph.</p><h1 id="a112410f-3a33-48a9-97b0-7021812c96a6" class="">RESOLUCIÓN DE CONFLICTOS AL HACER UN MERGE</h1><p id="16d513b6-c844-402b-88a1-f5e901f83cb9" class=""><strong>Git nunca borra nada</strong>, a menos que nosotros se lo indiquemos. Cuando usamos los comandos <code>git merge</code> o <code>git checkout</code> estamos cambiando de rama o creando un nuevo <em>commit</em>, no borrando ramas ni <em>commits</em> (recuerda que puedes borrar commits con <code>git reset</code> y ramas con <code>git branch -d</code>).</p><p id="9c5e70a7-e59b-4ad6-86ee-8c1786e46233" class="">Git es muy inteligente y puede resolver algunos conflictos automáticamente: cambios, nuevas líneas, entre otros. Pero algunas veces no sabe cómo resolver estas diferencias, por ejemplo, cuando dos ramas diferentes hacen cambios distintos a una misma línea.</p><p id="8a72928a-b57a-49d0-9274-ba8535d86615" class="">Esto lo conocemos como <strong>conflicto</strong> y lo podemos resolver manualmente. Solo debemos hacer el <em>merge</em>, ir a nuestro editor de código y elegir si queremos quedarnos con alguna de estas dos versiones o algo diferente. Algunos editores de código como Visual Studio Code nos ayudan a resolver estos conflictos sin necesidad de borrar o escribir líneas de texto, basta con hacer clic en un botón y guardar el archivo.</p><p id="b8159339-2f10-43de-8a7c-7b107735f976" class="">Recuerda que siempre debemos crear un nuevo commit para aplicar los cambios del merge. Si Git puede resolver el conflicto, hará commit automáticamente. Pero, en caso de no pueda resolverlo, debemos solucionarlo y hacer el commit.</p><p id="5179249e-91f2-4f8f-92f8-c792edbfaa56" class="">Los archivos con conflictos por el comando <code>git merge</code> entran en un nuevo estado que conocemos como <em><strong>Unmerged</strong></em>. Funcionan muy parecido a los archivos en estado <em>Unstaged</em>, algo así como un estado intermedio entre Untracked y Unstaged. Solo debemos ejecutar <code>git add</code> para pasarlos al área de staging y <code>git commit</code> para aplicar los cambios en el repositorio.</p><h2 id="9376cd1a-5875-48bf-a0dc-813598c8af76" class="">Cómo revertir un merge</h2><p id="4a2a10a2-3498-43ae-801c-1ece7c31ca78" class="">Si nos hemos equivocado y queremos cancelar el merge, debemos usar el siguiente comando:</p><pre id="80e37b32-343d-46c9-89ae-501cb770834d" class="code code-wrap"><code>git merge --abort</code></pre><h2 id="f363006f-62a8-469d-b332-83866f582cc7" class="">Conflictos en repositorios remotos</h2><p id="e71f23a6-3e93-4482-96c0-99646a34fcb3" class="">Al trabajar con otras personas, es necesario utilizar un repositorio remoto.</p><p id="adfb4502-074b-46ae-b3a4-9b224169318c" class="">­</p><ul id="aef81f0d-8cde-4bb7-9e6b-5c58ec79a097" class="bulleted-list"><li style="list-style-type:disc">Para copiar el repositorio remoto al directorio de trabajo local, se utiliza el comando <code>git clone &lt;url&gt;</code>, y para enviar cambios al repositorio remoto se utiliza <code>git push</code>.</li></ul><ul id="9c53b094-d3fc-45a5-93d8-dd9be7ced05c" class="bulleted-list"><li style="list-style-type:disc">Para actualizar el repositorio local se hace uso del comando <code>git fetch</code>, luego se debe fusionar los datos traídos con los locales usando <code>git merge</code>.</li></ul><ul id="098f9232-2db1-4e38-83ca-3877a6d30eab" class="bulleted-list"><li style="list-style-type:disc">Para traer los datos y fusionarlos a la vez, en un solo comando, se usa <code>git pull</code>.­- Para crear commits rápidamente, fusionando <code>git add</code> y <code>git commit -m &quot;&quot;</code>, usamos <code>git commit -am &quot;&quot;</code>.­- Para generar nuevas ramas, hay que posicionarse sobre la rama que se desea copiar y utilizar el comando <code>git branch &lt;nombre&gt;</code>.</li></ul><ul id="ef24b40e-3a06-4391-9811-eacdeb114d38" class="bulleted-list"><li style="list-style-type:disc">Para saltar entre ramas, se usa el comando <code>git checkout &lt;branch&gt;</code>­- Una vez realizado los cambios en la rama, estas deben fusionarse con <code>git merge</code>.</li></ul><ul id="1fe2990f-ac8e-4ee6-9bed-1c8bd2d9d221" class="bulleted-list"><li style="list-style-type:disc">El merge ocurre en la rama en la que se está posicionado. Por lo tanto, la rama a fusionar se transforma en la principal.</li></ul><ul id="1b08b443-da65-4369-a7ed-7b3974f5c717" class="bulleted-list"><li style="list-style-type:disc">Los merges también son commits.</li></ul><ul id="459a9005-e08b-42b7-a6dd-8f8766a9a2c6" class="bulleted-list"><li style="list-style-type:disc">Los merges pueden generar conflictos, esto aborta la acción y pide que soluciones el problema manualmente, aceptando o rechazando los cambios que vienen.</li></ul><h1 id="ff52d219-72f0-4190-88f7-b6e2b7feef2d" class="">COMO FUNCIONAN LAS LLAVES PÚBLICAS Y PRIVADAS</h1><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="5f358179-7abb-4bf0-a132-f8eb0a18b6eb"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">El cifrado asimétrico es un método criptográfico que utiliza dos claves diferentes: una clave pública y una clave privada. La clave pública se comparte con cualquier persona que quiera enviarte información cifrada, mientras que la clave privada se mantiene segura y solo la tienes tú. Cuando alguien quiere enviarte información cifrada, utiliza tu clave pública para cifrarla. Solo tú puedes descifrar la información cifrada con tu clave privada. Este método es más seguro que el cifrado simétrico porque no necesitas compartir tu clave privada con nadie, lo que significa que es más difícil para los hackers interceptar y descifrar comunicaciones seguras.</div></figure><p id="58dd1984-81f5-4201-9b4d-19fc7906efbb" class="">Las <strong>llaves públicas y privadas</strong>, conocidas también como cifrado asimétrico de un solo camino, sirven para mandar mensajes privados entre varios nodos con la lógica de que firmas tu mensaje con una llave pública vinculada con una llave privada que puede leer el mensaje.</p><p id="9c5647b9-2450-4203-9628-66a8cb973bbe" class="">Las llaves públicas y privadas nos ayudan a cifrar y descifrar nuestros archivos de forma que los podamos compartir sin correr el riesgo de que sean interceptados por personas con malas intenciones.</p><h2 id="64b95be2-b0af-4fc1-9ed0-2b3296773cc2" class="">Cómo funciona un mensaje cifrado con llaves públicas y privadas</h2><ul id="02681e1e-afd1-4e04-8cc5-648e3b0aa77f" class="bulleted-list"><li style="list-style-type:disc">Ambas personas deben crear su llave pública y privada.</li></ul><ul id="3885781f-4f61-4c7f-8f5c-25645e5ebc0e" class="bulleted-list"><li style="list-style-type:disc">Ambas personas pueden compartir su llave pública a las otras partes (recuerda que esta llave es pública, no hay problema si la “interceptan”).</li></ul><ul id="7781bb35-a1db-4daf-af9a-2920670ecbb3" class="bulleted-list"><li style="list-style-type:disc">La persona que quiere compartir un mensaje puede usar la llave pública de la otra persona para cifrar los archivos y asegurarse que solo puedan ser descifrados con la llave privada de la persona con la que queremos compartir el mensaje.</li></ul><ul id="793fa243-0ea6-417f-972d-dcda95362e69" class="bulleted-list"><li style="list-style-type:disc">El mensaje está cifrado y puede ser enviado a la otra persona sin problemas en caso de que los archivos sean interceptados.</li></ul><ul id="6fc26fdf-285f-459d-9ac0-2363870faa3f" class="bulleted-list"><li style="list-style-type:disc">La persona a la que enviamos el mensaje cifrado puede emplear su llave privada para descifrar el mensaje y ver los archivos.</li></ul><p id="2c70a2e5-4b2a-4bfc-9c1b-a1038b58b326" class="">Nota: puedes compartir tu llave pública, pero nunca tu llave privada.</p><h1 id="ea4ca5c2-1462-4f7c-b1d2-2eb220a592ce" class="">CONFIGURA TUS LLAVES SSH EN LOCAL</h1><p id="81985d2b-5e7a-4198-a949-e8624d9f30d4" class="">En este ejemplo, aprenderemos <strong>cómo configurar nuestras llaves SSH en local</strong>.</p><p id="c44533a5-a722-454b-8e65-dbb439c722ef" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="d821cb5e-a9c9-494e-a2cf-827c43b2a5c8"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">De esta forma, en vez de conectarnos por HTTPS a github nos conectaremos por SSH</div></figure><p id="f19257ce-4af7-4bf8-ac3c-89365b38232e" class="">HTTPS y SSH son diferentes protocolos de conexión que se utilizan para acceder a servicios en línea de forma segura. SSH es una opción más segura que HTTPS porque utiliza una clave pública para autenticar la conexión.</p><p id="aeb19892-1084-4fea-9b3a-70c2337f4282" class="">
+</p><blockquote id="541d3a87-3ab5-435a-b2ba-e0300f79f139" class=""><mark class="highlight-red">Las llaves SSH no son por proyecto ni por repositorio, SON POR PERSONA.</mark></blockquote><p id="18ef5fa3-19ae-45a5-9d25-1ca284590300" class="">
+</p><p id="8ba23d3a-5303-4946-9f88-79cb5dc2a0fb" class="">Antes que nada, podemos recordar cuál es nuestra configuración dentro de GIT. Para recordar cómo está configurado nuestro GIT en local escribimos (desde nuestra carpeta home ~  (no en nuestro proyecto):</p><pre id="bef5b04a-c807-40bd-aaae-03a9c55702ab" class="code"><code>git config -l</code></pre><figure id="4cac4251-68e4-4c7b-9239-b30e22395b71" class="image"><a href="CURSO%20PROFESIONAL%20DE%20GIT%20Y%20GITHUB%203a95e7b0f5f94b9dadf9f6a3529ae28c/Untitled%205.png"><img style="width:483px" src="CURSO%20PROFESIONAL%20DE%20GIT%20Y%20GITHUB%203a95e7b0f5f94b9dadf9f6a3529ae28c/Untitled%205.png"/></a></figure><p id="094696a1-d4b4-4d7b-9a90-22522ac37067" class="">
+</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="9b3eadbc-46f4-49ad-b8d8-16dad0c422cd"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Recuerda: Para cambiar el email usa el siguiente comando:
+git config —gloabal <a href="http://user.email">user.email</a> “email@dominio.com”</div></figure><p id="0c1d565a-f6e1-47c8-a890-9abc8370adfa" class="">
+</p><h2 id="2d8a81f1-c52f-40cb-b385-b0bd85920a6a" class="">Cómo generar tus llaves SSH</h2><h3 id="26712ef7-d9b3-477a-94dd-5c6b02315118" class="">1. Generar tus llaves SSH**</h3><p id="1fe02725-bedc-4abd-9bb3-c5abc8c65535" class="">Recuerda que es muy buena idea proteger tu llave privada con una contraseña.</p><pre id="7bd5e2f4-f2a6-414b-953e-70df1c5525d7" class="code code-wrap"><code>ssh-keygen -t rsa -b 4096 -C &quot;tu@email.com&quot;</code></pre><h3 id="d2cd3508-0b2d-436e-b61c-e316f0ed2aab" class="">2. Terminar de configurar nuestro sistema.</h3><p id="8ae326db-8157-4814-85a4-1390a6ffda70" class=""><strong>En Windows y Linux</strong>:</p><ul id="d09a35fc-59d4-4923-a4ad-75fd396be184" class="bulleted-list"><li style="list-style-type:disc">Encender el “servidor” de llaves SSH de tu computadora:</li></ul><pre id="3bf2b3b9-455a-4ff7-b73c-8b1938afbaad" class="code code-wrap"><code>eval $(ssh-agent -s)
+</code></pre><ul id="dd705def-0523-4d5f-841b-e96a26b009f1" class="bulleted-list"><li style="list-style-type:disc">Añadir tu llave SSH a este “servidor”:</li></ul><pre id="04830cab-7015-4a92-bb7e-fe9de410eb8b" class="code code-wrap"><code>ssh-add ruta-donde-guardaste-tu-llave-privada
+</code></pre><p id="fbc697d3-d39a-4951-aa11-9121a79d202e" class=""><strong>En Mac</strong>:</p><ul id="9082532e-8d91-4220-ada4-850fd8fe08db" class="bulleted-list"><li style="list-style-type:disc">Encender el “servidor” de llaves SSH de tu computadora:</li></ul><pre id="52391d4f-151f-4967-acf0-b6eac26d5759" class="code code-wrap"><code>eval &quot;$(ssh-agent -s)&quot;
+</code></pre><p id="aba0e31f-e115-49fe-af70-6fef409da404" class="">Si usas una versión de OSX superior a Mac Sierra (v10.12), debes crear o modificar un archivo “config” en la carpeta de tu usuario con el siguiente contenido (ten cuidado con las mayúsculas):</p><p id="913c2089-7c2b-4b93-ad0b-341bea36311a" class="">Host *</p><pre id="9bce4645-7d8a-4f72-9e84-8a1dc36dbda7" class="code code-wrap"><code>AddKeysToAgentyes
+UseKeychainyes
+IdentityFile ruta-donde-guardaste-tu-llave-privada
+</code></pre><ul id="f41892a0-5f04-4d93-9e30-823ac92983a6" class="bulleted-list"><li style="list-style-type:disc">Añadir tu llave SSH al “servidor” de llaves SSH de tu computadora (en caso de error puedes ejecutar este mismo comando pero sin el argumento -K):</li></ul><pre id="22ff8b28-36fe-4957-a38b-d0ea86990296" class="code code-wrap"><code>ssh-add-K ruta-donde-guardaste-tu-llave-privada</code></pre><h1 id="0e265a4f-fc86-4ada-9975-d04cf1ab0de7" class="">USO DE GITHUB</h1><p id="36435323-d276-43fb-b5c6-5a3dfe6498c6" class=""><strong>GitHub</strong> es una plataforma que nos permite guardar repositorios de Git que podemos usar como servidores remotos y ejecutar algunos comandos de forma visual e interactiva (sin necesidad de la consola de comandos).</p><p id="6c60d71b-b88c-4a73-bb56-c94779c08cf6" class="">Luego de crear nuestra cuenta, podemos crear o importar repositorios, crear organizaciones y proyectos de trabajo, descubrir repositorios de otras personas, contribuir a esos proyectos, dar estrellas y muchas otras cosas.</p><p id="4ed25026-2e77-4165-9887-af89acd6d06d" class="">El <code>README.md</code> es el archivo que veremos por defecto al entrar a un repositorio. Es una muy buena práctica configurarlo para describir el proyecto, los requerimientos y las instrucciones que debemos seguir para contribuir correctamente.</p><p id="0de36d89-572a-4ca2-9d86-06400fc4c357" class="">Para clonar un repositorio desde GitHub (o cualquier otro servidor remoto) debemos copiar la URL (por ahora, usando <code>HTTPS</code>) y ejecutar el comando <code>git clone</code> + la URL que acabamos de copiar. Esto descargará la versión de nuestro proyecto que se encuentra en GitHub.</p><p id="f3fae1c4-f9c5-493d-ba33-c9f40c04914f" class="">Sin embargo, esto solo funciona para las personas que quieren empezar a contribuir en el proyecto.</p><h2 id="c3819246-9427-4cf1-8e42-5ecc4d1fd767" class="">Cómo conectar un repositorio de GitHub a nuestro documento local</h2><p id="c1b7186d-5428-44f6-b7b6-ff30315d2d46" class="">Si queremos conectar el repositorio de GitHub con nuestro repositorio local, que creamos usando el comando <code>git init</code>, debemos ejecutar las siguientes instrucciones:</p><ul id="42263207-df14-46ee-b5bf-9a353445bd05" class="bulleted-list"><li style="list-style-type:disc">Guardar la URL del repositorio de GitHub con el nombre de origin</li></ul><pre id="5b644a20-0d25-4875-8f01-12cbb771b58c" class="code code-wrap"><code>git remote add origin URL
+</code></pre><ul id="55e97352-a775-479d-af9a-4ea9b2565673" class="bulleted-list"><li style="list-style-type:disc">Verificar que la URL se haya guardado correctamente:</li></ul><pre id="05fb9b57-414d-4574-b289-3ae1fbdc67ce" class="code code-wrap"><code>git remote
+git remote -v
+</code></pre><ul id="5ea0d91c-2d5d-47d1-bb4d-b7152e6c80ae" class="bulleted-list"><li style="list-style-type:disc">Traer la versión del repositorio remoto y hacer <em>merge</em> para crear un <em>commit</em> con los archivos de ambas partes. Podemos usar <code>git fetch</code> y <code>git merge</code> o solo <code>git pull</code> con el <em>flag</em> <code>-allow-unrelated-histories</code>:</li></ul><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="f301ef76-aba0-4f49-9632-b611a1f8af90"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Un flag es un modificador que se puede agregar a un comando para cambiar su comportamiento o activar opciones adicionales. En este caso, el flag <code>-allow-unrelated-histories</code> se utiliza al hacer un <code>git merge</code> entre dos ramas que no tienen un ancestro común en el historial del repositorio. Este flag permite que Git combine el historial divergente de las dos ramas en un solo historial de manera segura. Sin este flag, Git arrojaría un error al intentar realizar la combinación de historiales.</div></figure><pre id="c0d14dae-4aef-42d1-8bec-b1d0b08ca5ec" class="code code-wrap"><code>git pull origin master--allow-unrelated-histories</code></pre><ul id="7e4e57b6-4f81-4e46-99a5-4290c6bd32ba" class="bulleted-list"><li style="list-style-type:disc">Por último, ahora sí podemos hacer <code>git push</code> para guardar los cambios de nuestro repositorio local en GitHub:</li></ul><pre id="8dfe97de-fd8a-4f43-bb70-f560a14d150a" class="code code-wrap"><code>git push origin master</code></pre><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="4c99a730-30c2-4d89-8fa0-78a07fa1f819"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Es muy importante y muy recomendable, antes de hacer ningún push , traernos los cambios más recientes que existan en la nube usando:
+                                                                         git pull origin master
+</div></figure><h2 id="27207c9b-87ed-4342-8ba7-56d35e859d82" class="">Cómo autenticarte en GitHub 2022</h2><p id="57c1771a-97e7-4ecb-b8ef-256b6b80c1be" class="">Antes de empezar debemos renombrar la rama ‘máster’ a ‘main’, este es el nuevo estándar en GitHub, para esto:</p><ol type="1" id="2234f443-e06f-48ae-9c58-c626e1b2a8e5" class="numbered-list" start="1"><li>Primero nos posicionamos en la rama a la que queremos cambiarle el nombre.</li></ol><ol type="1" id="d1014948-28c7-4bb5-bcf6-8b4d580b6121" class="numbered-list" start="2"><li>Ejecutamos el siguiente comando: <code>git branch -M main</code></li></ol><p id="ff1e8aa3-5e84-4a51-8af6-fc305b40d1d7" class=""><strong>Pasos para crear un token de acceso personal.</strong></p><p id="49e6d512-fde8-41c4-a0b1-6943dbeb7762" class=""><strong>Desde el 2022 GitHub</strong> ya no deja hacer el push con la contraseña del propio GitHub, para esto tenemos que crear un token, y este token es la contraseña que vamos a colocar cuando nos pida clave.</p><blockquote id="6124b25c-f5bd-487c-99f7-3dc491ecf665" class="">Descubre el uso de tags en Github</blockquote><p id="11c95981-d685-49d4-b6c4-7dff2eedca0e" class="">Seguir la secuencia: Ingresamos a nuestra cuenta de GitHub.</p><ol type="1" id="0c90cc46-7f20-49e2-a5cc-d159959bdc1e" class="numbered-list" start="1"><li>Buscamos <code>Settings</code></li></ol><ol type="1" id="47e738bc-38a7-4632-a567-e653a68f10ea" class="numbered-list" start="2"><li>Click en <code>Developer settings</code></li></ol><ol type="1" id="7a35c053-4089-4f32-af1d-f15c3a2024e3" class="numbered-list" start="3"><li>Click en <code>Personal access tokens</code></li></ol><ol type="1" id="0709a59d-0950-48ca-ba89-9237f3e63320" class="numbered-list" start="4"><li>Click en <code>Generate new token</code> aquí se puede colocar un nombre, la fecha de expiración.</li></ol><ol type="1" id="f417a158-00f0-476e-bf08-4cf29b186acf" class="numbered-list" start="5"><li>Tildar en repo y luego click en el botón verde <code>Generate token</code></li></ol><p id="baecf57b-4b95-4aaa-ae7e-4d5a21719b55" class="">
+</p><h1 id="e4e54ba7-adf5-4f5a-a144-08692f181b1d" class="">TU PRIMER PUSH</h1><h2 id="4f3aa5d5-f1f8-49e7-b1a0-7f90325f3bdb" class="">Con HTTPS</h2><p id="a0ce1099-34ba-4461-b59e-ae03a3334191" class="">Vamos a decirle a git que vamos a agregar un repositorio remoto de nuestros archivos.</p><p id="154424ee-3009-44bb-9f37-a5cab113427e" class="">
+</p><p id="37e21037-0f40-464c-a9ff-d0f990386330" class="">git remote add origin <a href="https://github.com/srsempere/hyperblog.git">https://github.com/srsempere/hyperblog.git</a></p><p id="fab19466-c8f2-40ca-a79e-ba8bf338c3c5" class="">
+</p><p id="fbd149df-fe88-402d-bcd0-9258bbda285d" class="">
+</p><p id="199202f7-2b0a-41a3-950c-30e68d6dd0e0" class="">La creación de las SSH es necesario solo una vez por cada computadora. Aquí conocerás <strong>cómo conectar a GitHub usando SSH</strong>.</p><p id="b17da386-a5b4-4e06-b780-8666f4a060fc" class="">Luego de crear nuestras llaves SSH podemos entregarle la llave pública a GitHub para comunicarnos de forma segura y sin necesidad de escribir nuestro usuario y contraseña todo el tiempo.</p><p id="96356b92-2a56-4ddd-9658-936839378ec7" class="">Para esto debes entrar a la <a href="https://github.com/settings/keys">Configuración de Llaves SSH en GitHub</a>, crear una nueva llave con el nombre que le quieras dar y el contenido de la llave pública de tu computadora.</p><p id="b9fe3bee-1ca4-4bf3-9a04-2beb62c67630" class="">Ahora podemos actualizar la URL que guardamos en nuestro repositorio remoto, solo que, en vez de guardar la URL con HTTPS, vamos a usar la URL con SSH:</p><pre id="9e2f1324-4349-4bdf-a08b-36f4a82a6cb6" class="code code-wrap"><code>git remoteset-url origin url-ssh-del-repositorio-en-github
+</code></pre><p id="d4fc47b5-ad1e-4eea-a471-03e5554dcbe2" class="">Si escribimos ahora git remote , vemos que ahora existe algo que se llama origin:</p><figure id="efeb7405-5588-4f32-98c7-279ec6b32fb5" class="image"><a href="CURSO%20PROFESIONAL%20DE%20GIT%20Y%20GITHUB%203a95e7b0f5f94b9dadf9f6a3529ae28c/Untitled%206.png"><img style="width:470px" src="CURSO%20PROFESIONAL%20DE%20GIT%20Y%20GITHUB%203a95e7b0f5f94b9dadf9f6a3529ae28c/Untitled%206.png"/></a></figure><p id="7a0e75c0-cc87-4b67-89c7-93f5213485b9" class="">Y si escribimos git remote -v, nos muestra que tenemos un origin para hacer fetch y otro para hacer push.</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="8330fbd7-f0be-4b0e-a30d-7842adb47b5d"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Cuando trabajamos con repositorios remotos, es importante tener claro que existen dos direcciones de red importantes: el &quot;fetch&quot; y el &quot;push&quot;. El comando &quot;git remote -v&quot; nos muestra los orígenes configurados para ambas direcciones. Es decir, qué URL se utilizará para bajar los cambios del repositorio remoto (&quot;fetch&quot;) y qué URL se utilizará para subir los cambios locales al repositorio remoto (&quot;push&quot;).
+
+En el caso específico del texto que mencionaste, el usuario ha verificado la configuración de los orígenes con el comando &quot;git remote -v&quot; y ha identificado que existen dos orígenes configurados. Uno de ellos será utilizado para el &quot;fetch&quot; y el otro para el &quot;push&quot;.<p id="e662a5d9-dc65-447c-aa86-80370c34513b" class="">Es importante tener en cuenta que estos dos orígenes no necesariamente deben ser iguales, pueden apuntar a diferentes ubicaciones del repositorio remoto. Por ejemplo, es posible que se tenga un origen para &quot;fetch&quot; que apunte a un servidor centralizado donde se almacena el código, y otro origen para &quot;push&quot; que apunte a una rama específica en un servidor de integración continua.</p><p id="88bc1bb5-1222-41d7-8486-d20ffb8e3af2" class="">En resumen, el comando &quot;git remote -v&quot; es muy útil para verificar la configuración de los orígenes remotos, lo que nos permite asegurarnos de que estamos trabajando con las URL correctas para hacer &quot;fetch&quot; y &quot;push&quot; en nuestro repositorio local.</p></div></figure><p id="36b1f986-94de-4505-a82d-d4253880d6b7" class="">
+</p><figure id="f0170e23-41a0-4823-8cd7-70ff5b207fc1" class="image"><a href="CURSO%20PROFESIONAL%20DE%20GIT%20Y%20GITHUB%203a95e7b0f5f94b9dadf9f6a3529ae28c/Untitled%207.png"><img style="width:461px" src="CURSO%20PROFESIONAL%20DE%20GIT%20Y%20GITHUB%203a95e7b0f5f94b9dadf9f6a3529ae28c/Untitled%207.png"/></a></figure><p id="2fb69176-e893-4923-97fa-95b107063151" class="">
+</p><p id="2d233737-3b32-4428-9f3f-288f3caa7f22" class="">Como github ha cambiado la rama master por el nombre main, hay que el nombre de nuestra rama. Si ya tenemos un proyecto en curso, debemos hacer lo siguiente para migrar todos los cambios de la master a la main.</p><ol type="1" id="9cacfe5c-9320-4aab-9dac-0b1d4e092dee" class="numbered-list" start="1"><li><mark class="highlight-red">Establecer la rama main como principal.</mark></li></ol><pre id="adfd54bc-5f81-4cf5-a3b1-624b148db8a2" class="code"><code>git branch -m main</code></pre><ol type="1" id="606b31ae-c1c6-4335-b8f5-6a3e12ed0f60" class="numbered-list" start="2"><li>Seguidamente, debemos hacer el push para llevar lo que tenemos localmente a nuestra rama main remota.</li></ol><pre id="14b32346-4df9-492b-a68f-4dd8fee8190d" class="code"><code>git push origin main</code></pre><p id="982d48e2-6278-41e6-b7ac-c7878c720746" class="">En mi ejemplo, me sale el siguiente error:</p><figure id="34b383bb-5c69-4357-87e9-2a2c71c5bd28" class="image"><a href="CURSO%20PROFESIONAL%20DE%20GIT%20Y%20GITHUB%203a95e7b0f5f94b9dadf9f6a3529ae28c/Untitled%208.png"><img style="width:576px" src="CURSO%20PROFESIONAL%20DE%20GIT%20Y%20GITHUB%203a95e7b0f5f94b9dadf9f6a3529ae28c/Untitled%208.png"/></a></figure><p id="28cfcba4-1cbf-4180-81ce-68c8dd7fed0b" class="">Esto se debe a que la rama remota contiene trabajo que no tenemos localmente. Lo que hay que hacer es integrar los cambios remotos antes de volver a hacer un push.</p><p id="71388ca6-6327-47b7-a479-0d353d417689" class="">Para solucionar esto, podemos usar el comando:</p><pre id="c34ce7d7-de40-4266-a2f8-7e432ed49aa8" class="code"><code>git pull origin mainfatal: refusing to merge unrelated histories</code></pre><figure id="d9b1dba9-ca7f-4c57-8dc8-adf390404f97" class="image"><a href="CURSO%20PROFESIONAL%20DE%20GIT%20Y%20GITHUB%203a95e7b0f5f94b9dadf9f6a3529ae28c/Untitled%209.png"><img style="width:464px" src="CURSO%20PROFESIONAL%20DE%20GIT%20Y%20GITHUB%203a95e7b0f5f94b9dadf9f6a3529ae28c/Untitled%209.png"/></a></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="c82fd3db-7894-43ed-9747-dcd8b2b12ad0"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Este mensaje de error ocurre cuando intentas fusionar dos ramas que no tienen un ancestro común en su historial de commits. Git se niega a realizar la fusión porque no sabe cómo combinar las historias no relacionadas. Para resolver este error, puedes intentar agregar el modificador <code>--allow-unrelated-histories</code> al comando <code>git pull</code>. Esto permitirá que Git realice la fusión, pero debes tener cuidado para asegurarte de que la historia resultante tenga sentido para tu proyecto.</div></figure><figure id="800381d8-4239-4a3b-8d9c-6e79daa95741" class="image"><a href="CURSO%20PROFESIONAL%20DE%20GIT%20Y%20GITHUB%203a95e7b0f5f94b9dadf9f6a3529ae28c/Untitled%2010.png"><img style="width:279px" src="CURSO%20PROFESIONAL%20DE%20GIT%20Y%20GITHUB%203a95e7b0f5f94b9dadf9f6a3529ae28c/Untitled%2010.png"/></a></figure><h2 id="f02e725f-a227-44cd-add2-9d39d9f7a8c5" class="">Comandos para copiar la llave SSH:</h2><ul id="2dfddfdf-a696-45be-9d30-8d694fd68b09" class="bulleted-list"><li style="list-style-type:disc"><strong>Mac</strong>:</li></ul><pre id="b34baa16-48db-4503-a0f1-cc34f3d84bfb" class="code code-wrap"><code>pbcopy &lt; ~/.ssh/id_rsa.pub
+</code></pre><ul id="55971d3b-b74e-4e87-927c-339ef1c81714" class="bulleted-list"><li style="list-style-type:disc"><strong>Windows (Git Bash)</strong>:</li></ul><pre id="5402e0c1-6148-4d39-a439-7252ee00681a" class="code code-wrap"><code>clip &lt; ~/.ssh/id_rsa.pub
+</code></pre><ul id="52576bc6-4876-408c-9860-c60ea6f9a9cf" class="bulleted-list"><li style="list-style-type:disc"><strong>Linux (Ubuntu)</strong>:</li></ul><pre id="2a837bc3-2a9c-4b43-ac44-61e92464358c" class="code code-wrap"><code>cat ~/.ssh/id_rsa.pub</code></pre><figure id="891c7f4b-3e80-4028-a405-0d881d9b2279" class="image"><a href="CURSO%20PROFESIONAL%20DE%20GIT%20Y%20GITHUB%203a95e7b0f5f94b9dadf9f6a3529ae28c/Untitled%2011.png"><img style="width:509px" src="CURSO%20PROFESIONAL%20DE%20GIT%20Y%20GITHUB%203a95e7b0f5f94b9dadf9f6a3529ae28c/Untitled%2011.png"/></a></figure><h1 id="18607e11-f144-49d7-b18c-ae3e14ec972f" class="">GIT TAG Y VERSIONES EN GITHUB</h1><p id="5a02c29e-7667-4ee6-a5b5-7307e0d31e0a" class="">En Git, las etiquetas o <strong>Git tags</strong> tienen un papel importante al asignar versiones a los commits más significativos de un proyecto. Aprender a utilizar el comando git tag, entender los diferentes tipos de etiquetas, cómo crearlas, eliminarlas y compartirlas, es esencial para un flujo de trabajo eficiente.</p><p id="0f420c3a-e36d-4e53-8d2b-bca08e2496ef" class="">
+</p><figure id="62f33825-6c50-498c-a9f4-25f73706ebea" class="image"><a href="CURSO%20PROFESIONAL%20DE%20GIT%20Y%20GITHUB%203a95e7b0f5f94b9dadf9f6a3529ae28c/Untitled%2012.png"><img style="width:638px" src="CURSO%20PROFESIONAL%20DE%20GIT%20Y%20GITHUB%203a95e7b0f5f94b9dadf9f6a3529ae28c/Untitled%2012.png"/></a></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="e421bcff-9044-4515-9841-fa70438b91ff"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><code>git tag -a</code> permite crear una etiqueta anotada, lo que significa que se puede agregar un mensaje de etiqueta para proporcionar más detalles sobre la etiqueta.
+Por ejemplo, <code>git tag -a ronburgundy -m &quot;Versión 1.0.0&quot;</code> creará una etiqueta anotada llamada &quot;ronburgundy&quot; con el mensaje &quot;Versión 1.0.0&quot;. Esto puede ser útil para proporcionar información adicional sobre la versión del proyecto en la que se encuentra la etiqueta.</div></figure><h2 id="c2c80187-a693-4d09-a721-a86ea0ec96f0" class=""><strong>Creación de etiquetas en Git</strong></h2><p id="6e4366cd-aa72-4149-9a54-cae9918ca6fe" class="">Para crear una etiqueta, ejecuta el siguiente comando:</p><pre id="3ae21756-6e48-44cc-ade6-88ec55f48729" class="code code-wrap"><code>git tag &lt;tagname&gt;
+</code></pre><p id="29ef47de-c4d3-4dd8-b6e2-4eedfb9bf0b6" class="">Sustituye <code><strong>&lt;tagname&gt;</strong></code> con un identificador semántico que refleje el estado del repositorio en el momento de la creación. Git admite etiquetas anotadas y ligeras. Las etiquetas anotadas almacenan información adicional como la fecha, etiquetador y correo electrónico, y son ideales para publicaciones públicas. Las etiquetas ligeras son más simples y se emplean como “marcadores” de una confirmación específica.</p><h2 id="b2e00f09-b19f-48f2-a5ea-0a6c2811c1f2" class=""><strong>Listado de etiquetas</strong></h2><p id="941c8855-41f1-4279-8a57-919e5389a2f9" class="">Para obtener una lista de etiquetas en el repositorio, ejecuta el siguiente comando:</p><pre id="67d60695-5aad-40bb-9c5b-0302ed8ca689" class="code code-wrap"><code>git tag</code></pre><p id="6f614d94-2b16-4929-846f-ee024e17dea2" class="">Esto mostrará una lista de las etiquetas existentes, como:</p><pre id="9098850e-a899-4918-a697-3c9936c98b1a" class="code code-wrap"><code>v1.0
+v1.1
+v1.2
+</code></pre><p id="c315ffc0-d82e-4dbb-bf29-2de4e610cd3b" class="">Para perfeccionar la lista, puedes utilizar opciones adicionales, como <code><strong>-l</strong></code> con una expresión comodín.</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="adbca6ca-69cd-4cca-bd36-4bfbb72a707f"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">El comando <code>git tag</code> lista todas las etiquetas existentes en el repositorio, pero la opción <code>-l</code> nos permite filtrar las etiquetas según una expresión comodín. Por ejemplo, si queremos listar solo las etiquetas que comienzan con &quot;v1&quot;, podemos utilizar el comando <code>git tag -l &quot;v1*&quot;</code>. Esto nos mostrará todas las etiquetas que comienzan con &quot;v1&quot;, como &quot;v1.0&quot;, &quot;v1.1&quot;, &quot;v1.2&quot;, etc. De esta manera, podemos refinar la lista de etiquetas para encontrar la que necesitamos con mayor precisión.</div></figure><h2 id="b09e80b1-abeb-48f8-8a6c-cb8fd4204f20" class=""><strong>Uso compartido de etiquetas</strong></h2><p id="cd3bd355-2b89-4aa4-8421-b47a0e8f7801" class="">Compartir etiquetas requiere un enfoque explícito al usar el comando <code><strong>git push</strong></code>. Por defecto, las etiquetas no se envían automáticamente. Para enviar etiquetas específicas, utiliza:</p><pre id="b986abcc-2005-4414-b81b-68c3c4fc4eeb" class="code code-wrap"><code>git push origin &lt;tagname&gt;
+</code></pre><p id="024050ca-78d8-447e-9a8c-9502384f3d15" class="">Para enviar varias etiquetas a la vez, usa:</p><pre id="a4290960-d19b-4ce8-b920-11e35836ea9f" class="code code-wrap"><code>git push origin --tags
+</code></pre><h2 id="baebfb49-3f1c-409f-9e6d-ae1b54b140f4" class=""><strong>Eliminación de etiquetas</strong></h2><p id="7f40fe81-4f00-4494-9740-96b528b0d96b" class="">Para eliminar una etiqueta, usa el siguiente comando:</p><pre id="0e6b9d53-f306-4bf7-83da-aa856cb831a3" class="code code-wrap"><code>gittag-d &lt;tagname&gt;
+</code></pre><p id="caf2cf38-6955-4dcc-a6f5-fb42e1ecd23d" class="">Esto eliminará la etiqueta identificada por <code><strong>&lt;tagname&gt;</strong></code> en el repositorio local.</p><h1 id="5d24b0ad-e360-4ccd-bea1-66852c673336" class="">COLABORAR CON OTRA PERSONA EN EL MISMO REPOSITORIO</h1><p id="652d2a55-81d3-4e8e-b040-57f63e8702e2" class="">Para permitir que otra persona colabore en un repositorio de GitHub, debes seguir los siguientes pasos:</p><ol type="1" id="d5fd6fb7-b447-4505-b091-ac62e4c2d480" class="numbered-list" start="1"><li>Invitar a la otra persona a colaborar en el repositorio. Para hacer esto, ve a la página del repositorio en GitHub y haz clic en &quot;Settings&quot;. Luego, haz clic en &quot;Manage access&quot; en la barra lateral izquierda. Desde aquí, puedes agregar a la otra persona como colaborador y enviarle una invitación por correo electrónico.</li></ol><ol type="1" id="314c8b86-7956-40e7-836b-2e52c4a8650c" class="numbered-list" start="2"><li>La otra persona debe aceptar la invitación y crear una cuenta de GitHub si aún no la tiene.</li></ol><ol type="1" id="fd25167a-f9b0-4a1b-8cd8-d9368640557e" class="numbered-list" start="3"><li>La otra persona debe clonar el repositorio en su computadora local. Para hacer esto, puede usar el comando <code>git clone</code> seguido de la URL del repositorio en GitHub. Esta URL se puede encontrar haciendo clic en el botón &quot;Code&quot; en la página del repositorio en GitHub.</li></ol><ol type="1" id="10344027-c3cd-411a-92c9-a92189d0351a" class="numbered-list" start="4"><li>Una vez que la otra persona tiene una copia local del repositorio, puede hacer cambios y commits como de costumbre.</li></ol><ol type="1" id="07832cc5-e904-4e39-b4c6-27add06621af" class="numbered-list" start="5"><li>Antes de hacer push a la nube, es conveniente volver a traernos los posibles cambios que se hayan hecho a última hora en el repositorio de gitHub. Para ello hacemos <mark class="highlight-yellow_background">git pull origin master.</mark></li></ol><ol type="1" id="5e0345fb-0fcc-4e6a-af23-51e61100c957" class="numbered-list" start="6"><li>Para enviar los cambios de vuelta al repositorio en GitHub, la otra persona debe hacer un <code>git push</code>. Sin embargo, es posible que la otra persona no tenga permisos para hacer un push directamente al repositorio en GitHub, dependiendo de cómo se haya configurado. En este caso, la otra persona puede hacer un fork del repositorio en GitHub y enviar un pull request para que el propietario del repositorio revise y acepte los cambios.</li></ol><ol type="1" id="e4ac8e46-a0aa-4291-9447-047eee937996" class="numbered-list" start="7"><li>Si el propietario del repositorio desea permitir que la otra persona haga un push directamente al repositorio, debe agregar a la otra persona como colaborador con permisos de escritura en la página de configuración del repositorio en GitHub.</li></ol><p id="40e5b3ce-474f-4bf3-834d-2cb702fb24f6" class="">Es importante tener en cuenta que, al permitir que otra persona colabore en un repositorio, estás dando acceso a tus archivos y código fuente. Asegúrate de confiar en la otra persona antes de darle acceso a tu repositorio.</p><p id="dff51c2c-1569-4a3d-8535-26bd16a73e0b" class="">La forma real de trabajar es cada persona en su propia rama y posteriormente se hace un merge de ambas ramas.</p><h1 id="994f9570-581f-4d08-837f-331c4cfd076f" class="">FLUJO DE TRABAJO PROFESIONAL</h1><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="bdec83b0-67a6-4690-bad2-ea027d54603b"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">No es una buena práctica incluir archivos de imágenes en GitHub (no se deben incluir archivos binarios) solamente de texto plano.</div></figure><p id="84d49b09-2113-4ca9-87e8-65a075fcb50a" class=""><strong><mark class="highlight-red_background">NO SE DEBE TRABAJAR EN EL MASTER. EN EL MASTER SOLO SE ENVÍA LO QUE YO YA ESTOY SEGURO QUE ESTÁ LISTO PARA PRODUCCIÓN.</mark></strong></p><p id="86031751-305e-49f4-8da7-424aa1a536ac" class="">Puede ser que creemos nuestra rama en local pero esta no exista de momento en GitHub. Si esto sucede y queremos subirla, tenemos que hacer lo siguiente:</p><p id="f72f9b1c-d68f-4fce-b7a9-36185a72c6b2" class="">Suponiendo que la rama se denomina “header”</p><pre id="9735decc-51f3-4539-8887-d08a05d71b5f" class="code"><code>git push --set-upstream origin header</code></pre><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="8b8c29ce-6f66-4f0f-9d21-c9c28970f586"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">Sirve para enviar los cambios realizados en la rama local con el nombre &quot;header&quot; al repositorio remoto llamado &quot;origin&quot;. La opción &quot;--set-upstream&quot; establece que la rama local haga seguimiento a la rama remota, de manera que futuros envíos y recibos de cambios se puedan hacer sin especificar el nombre de la rama remota.</div></figure><h2 id="ec27b2c4-ae20-48bf-8cd2-e7712962f25a" class="">Hacer merge</h2><p id="6c454d3e-aa38-495b-ad5e-2f30a2d847ab" class="">Para hacer los merges hay que ir a la rama a la que yo quiero traerme los cambios, en este caso la rama main.</p><p id="4c733b92-5839-4f02-a4bf-99491a8eee5d" class="">Y desde la rama maestra se fusionan las ramas (en la práctica realizada en Platzi, fusiono las ramas header y footer).</p><p id="41201b25-a941-47cf-a350-2db76b822bb3" class="">
+</p><h1 id="a17d55c0-d620-4a3e-9d38-b4c28e995ea9" class="">UTILIZANDO PULL REQUEST EN GITHUB</h1><p id="0063e4b6-daea-4757-95c6-a6f5d28a982b" class="">Un <strong>Pull Request</strong> es una función de GitHub que permite a tu equipo solicitar la revisión y aprobación de sus cambios antes de fusionarlos en la rama principal de desarrollo, denominada “master” o “main”.</p><p id="e9714377-efae-4876-a698-84633aa90686" class="">Al crear un PR se genera una conversación en la que los demás miembros pueden seguir y comentar los cambios propuestos en el código del repositorio. Esto permite detectar cualquier error o problema potencial antes de integrarlos en la rama principal, lo que ayuda a mantener el proyecto más limpio y estable.</p><h2 id="13134f2a-ac62-4a3e-a523-fbf547724aa1" class="">Estructura de la incorporación de cambios</h2><p id="d469f6f8-3dde-406f-b7a7-4d7434010476" class="">El proceso para hacer un pull request consiste en indicar la rama y repositorio de origen y destino. De esta forma, un desarrollador podrá incluir tus cambios en su proyecto.</p><figure id="c4fdfc49-d8be-4daa-ad1b-f3f4d5cbeac2" class="image"><a href="https://static.platzi.com/media/user_upload/imagen-articlases-optimizada%20%281%29-395f58fb-b44b-4729-be7d-38549ea2a157.jpg"><img src="https://static.platzi.com/media/user_upload/imagen-articlases-optimizada%20%281%29-395f58fb-b44b-4729-be7d-38549ea2a157.jpg"/></a></figure><p id="c12019a4-342b-4421-8f8f-630e84aab7fb" class="">Bitbucket tiene una configuración predeterminada que funciona para la mayoría de los equipos, pero cada equipo puede personalizarla para ajustarla a su propio flujo de trabajo.</p><h2 id="a5e01f1b-9a50-4523-b224-1b71ca765cfd" class="">Cómo hacer un pull request</h2><p id="f0cd9d61-d91a-4d11-8513-494bb8639164" class="">Un <strong>PR</strong> es un proceso crucial para facilitar la revisión y la integración efectiva del código. A continuación, veremos el paso a paso.</p><h3 id="3ad586f9-ce60-4aab-bef3-56f1ba08d932" class="">Solicitando un pull request</h3><figure id="e5852f8e-bf68-4f51-82ab-c8f803d8a5b2" class="image"><a href="https://static.platzi.com/media/user_upload/pull-request-38df0cef-b987-4a8e-adc1-a612541ed5ff.jpg"><img src="https://static.platzi.com/media/user_upload/pull-request-38df0cef-b987-4a8e-adc1-a612541ed5ff.jpg"/></a></figure><ol type="1" id="93dfa778-6359-40df-86d4-9a6282c7c738" class="numbered-list" start="1"><li><strong>Crea una rama paralela</strong>: Antes de hacer cambios en el código, utiliza el comando <code><strong>git checkout -b &lt;rama&gt;</strong></code> para crear una nueva rama. Así, podrás hacer tus modificaciones sin afectar la rama principal (por ejemplo, <code><strong>master</strong></code>).</li></ol><ol type="1" id="667df0d5-fd06-4a96-81cd-6c9db84f0d4c" class="numbered-list" start="2"><li><strong>Realiza commits</strong>: Después de hacer cambios en los archivos, usa <code><strong>git commit -am &#x27;&lt;Comentario&gt;&#x27;</strong></code> para hacer un commit con un mensaje descriptivo.</li></ol><ol type="1" id="830bb48d-0703-4297-888e-f66c5885fe42" class="numbered-list" start="3"><li><strong>Sube los cambios</strong>: Usa <code><strong>git push origin &lt;rama&gt;</strong></code> para subir tus cambios de la rama local al repositorio remoto. Reemplaza <code><strong>&lt;rama&gt;</strong></code> con el nombre de tu rama.</li></ol><ol type="1" id="b43ed628-cf66-4ce7-b86d-c68bebb5e137" class="numbered-list" start="4"><li><strong>Crea un pull request</strong>: En el repositorio remoto (como GitHub), crea un nuevo pull request. Selecciona la rama principal como destino y tu rama con los cambios como comparación.</li></ol><ol type="1" id="9f032897-44a4-4d6c-9505-c4865b760bbc" class="numbered-list" start="5"><li><strong>Feedback</strong>: Los revisores examinarán los cambios. Usa la sección de comentarios del pull request para discutir los cambios y proporcionar feedback adicional.</li></ol><ol type="1" id="b994300b-fb71-4980-8ea2-cb0bd2dee16e" class="numbered-list" start="6"><li><strong>Realiza los cambios solicitados</strong>: Si se solicitan cambios, regresa a tu rama local y haz las modificaciones necesarias. Luego, sube los cambios al repositorio remoto usando <code><strong>git push origin &lt;rama&gt;</strong></code>.</li></ol><h3 id="baf9b3ba-fafa-45ed-abab-e5e6aa779d86" class="">Aceptando un pull request</h3><figure id="4d184ea6-cc56-4906-abc8-b741b1c7b9cb" class="image"><a href="https://static.platzi.com/media/user_upload/git-hub-approve-fd8df74c-7031-4e42-a8aa-784441ba74c2.jpg"><img src="https://static.platzi.com/media/user_upload/git-hub-approve-fd8df74c-7031-4e42-a8aa-784441ba74c2.jpg"/></a></figure><ol type="1" id="3fb774da-ab26-43e3-b14d-2e0a78f97be3" class="numbered-list" start="1"><li><strong>Acepta los cambios en GitHub</strong>: Si estás satisfecho con los cambios propuestos en el pull request y consideras que están listos para ser fusionados con la rama principal, acepta el pull request en GitHub. De esta forma, los cambios se fusionarán en la rama principal del repositorio.</li></ol><ol type="1" id="41552431-ae64-41a9-aabd-759915c839b4" class="numbered-list" start="2"><li><strong>Realiza el merge en la rama principal</strong>: Después de aceptar el pull request, selecciona la opción para realizar el merge en GitHub. Esto combinará los cambios de la rama con los cambios existentes en la rama principal (<code><strong>master</strong></code>).</li></ol><p id="764004e2-c624-4c5f-9d73-f9291a9b0202" class="">Para solicitar y aceptar pull requests de manera efectiva, sigue estos sencillos pasos que te ayudarán a facilitar la colaboración y la mejora continua del código en tu proyecto.</p><h2 id="bce06246-41f5-4b4d-ab05-88be25f5f031" class="">¿Cómo corregir un Pull Request?</h2><p id="d1976865-e622-49e1-9276-310ff70feff7" class="">Al revisar un pull request, es posible encontrar problemas o áreas que necesiten corrección antes de que los cambios se puedan unir con la rama principal. Aquí se explica cómo corregir un pull request de forma efectiva.</p><ol type="1" id="902a08cf-b369-45b7-863c-8ef616d62e51" class="numbered-list" start="1"><li><strong>Lee los comentarios y feedback</strong>: Comprueba cuidadosamente todos los comentarios y feedback proporcionados por los revisores en el pull request. Toma nota de los problemas señalados y las sugerencias de mejora.</li></ol><ol type="1" id="587b8672-38b1-4009-8ecc-503c28e13121" class="numbered-list" start="2"><li><strong>Regresa a tu rama local</strong>: Utiliza el comando <code><strong>git checkout &lt;rama&gt;</strong></code> para volver a la rama en la que realizaste los cambios y necesitas revisar.</li></ol><ol type="1" id="ce478b26-ecc2-4d07-bf4a-6551277500ca" class="numbered-list" start="3"><li><strong>Realiza las modificaciones</strong>: Basándote en los comentarios y feedback recibidos, efectúa las revisiones necesarias en los archivos relevantes. Asegúrate de abordar todos los problemas señalados y seguir las sugerencias de mejora proporcionadas.</li></ol><ol type="1" id="d927af21-4ed7-4645-9c40-1cedd6447483" class="numbered-list" start="4"><li><strong>Realiza un nuevo commit</strong>: Después de efectuar las correcciones, utiliza el comando <code><strong>git commit -am &#x27;&lt;Comentario&gt;&#x27;</strong></code> para crear un nuevo commit que refleje las correcciones realizadas. Asegúrate de proporcionar un mensaje claro y descriptivo para indicar las modificaciones realizadas.</li></ol><ol type="1" id="c177edb3-cf27-4098-987f-ead0da1dc342" class="numbered-list" start="5"><li><strong>Sube los cambios al repositorio remoto</strong>: Utiliza el comando <code><strong>git push origin &lt;rama&gt;</strong></code> para subir los cambios corregidos a la rama correspondiente en el repositorio remoto.</li></ol><ol type="1" id="503c95b4-50cd-4628-b70d-ae71ee08684a" class="numbered-list" start="6"><li><strong>Actualiza el pull request</strong>: Una vez que los cambios corregidos se hayan subido al repositorio remoto, el pull request se actualizará automáticamente para reflejar las modificaciones procedidas en la rama. Los revisores podrán ver los nuevos cambios y comentarios.</li></ol><ol type="1" id="f9d52774-370d-48a5-89ff-873e2e2584ef" class="numbered-list" start="7"><li><strong>Comunica las correcciones realizadas</strong>: Si consideras que has abordado adecuadamente los problemas señalados y las sugerencias de mejora, puedes comunicar a los revisores que has realizado las correcciones necesarias y que el pull request está listo para ser revisado nuevamente.</li></ol><h2 id="ebf59c35-0cc6-4560-b218-466f4bbede9d" class="">Es hora de administrar tus pull requests</h2><p id="b4ae02e9-2480-486b-af15-f630399cd5d3" class="">Al seguir estos pasos, podrás revisar un pull request de manera efectiva, asegurándote de abordar los problemas identificados y proporcionar una versión mejorada de los cambios propuestos. La comunicación abierta y clara con los revisores es fundamental durante este proceso para garantizar una colaboración exitosa.</p><p id="8b957adf-87bb-4408-868b-abec53b2a117" class="">Recuerda que cualquier modificación que realices en una rama también modificará el pull request, así que es importante que procedas con los cambios necesarios y los subas de nuevo al repositorio remoto antes de aceptar el pull request.</p><h1 id="5ac09e3f-2617-460f-a69d-502f8bfe4ac4" class="">CREANDO UN FORK, CONTRIBUYENDO A UN REPOSITORIO</h1><p id="dd9741d0-a460-44b1-be52-2885c6764bd9" class="">Los <em><strong>forks</strong></em><strong> o bifurcaciones</strong> son una característica única de GitHub en la que se crea una copia exacta del estado actual de un repositorio directamente en GitHub. Este repositorio podrá servir como otro origen y se podrá clonar (como cualquier otro repositorio). En pocas palabras, lo podremos utilizar como un nuevo repositorio git cualquiera</p><p id="96f56343-b912-4d10-b715-06160400caac" class="">Un fork es como una bifurcación del repositorio completo. Comparte una historia en común con el original, pero de repente se bifurca y pueden aparecer varios cambios, ya que ambos proyectos podrán ser modificados en paralelo y para estar al día un colaborador tendrá que estar actualizando su <em>fork</em> con la información del original.</p><p id="c49cd95a-0688-41d2-a2d9-3e3ba4a02e81" class="">Al hacer un fork de un poryecto en GitHub, te conviertes en dueñ@ del repositorio fork, puedes trabajar en este con todos los permisos, pero es un repositorio completamente diferente que el original, teniendo solamente alguna historia en común (como crédito al creado o creadora original).</p><p id="df0beeff-8317-40b2-b0d9-32d2c3b9652e" class="">Los forks son importantes porque es la manera en la que funciona el open source, ya que, una persona puede no ser colaborador de un proyecto, pero puede contribuír al mismo, haciendo mejor software que pueda ser utilizado por cualquiera.</p><h2 id="303e3acb-a359-4c49-bfb6-efbd14551174" class="">Cómo se hace un fork remoto desde consola en GitHub</h2><p id="44e911b3-1b06-4789-a989-1eb50a828fc5" class="">Al hacer un fork, GitHub sabe que se hizo el fork del proyecto, por lo que se le permite al colaborador hacer pull request desde su repositorio propio.</p><p id="f5835b45-615c-41c6-8a64-099c2019a21a" class="">Cuando trabajas en un proyecto que existe en diferentes repositorios remotos (normalmente a causa de un fork), es muy probable que desees poder trabajar con ambos repositorios. Para esto, puedes generar un remoto adicional desde consola.</p><pre id="5a92129a-e153-4f84-8f5b-38e682a2f90d" class="code code-wrap"><code>git remote add &lt;nombre_del_remoto&gt; &lt;url_del_remoto&gt;
+git remote upstream https://github.com/freddier/hyperblog
+</code></pre><p id="79acde52-9ec1-455e-a25a-70411cef3666" class="">Al crear un remoto adicional, podremos hacer pull desde el nuevo origen. En caso de tener permisos, podremos hacer fetch y push.</p><pre id="34c4f020-f417-45f4-a0a2-52fd45926905" class="code code-wrap"><code>git pull &lt;remoto&gt; &lt;rama&gt;
+git pull upstream master
+</code></pre><p id="059e99d7-f130-4b52-9672-66791d475f47" class="">Este pull nos traerá los cambios del remoto, por lo que se estará al día en el proyecto. El flujo de trabajo cambia, en adelante se estará trabajando haciendo <em>pull</em> desde el <em>upstream</em> y push al <em>origin</em> para pasar a hacer pull request.</p><pre id="7b196b4e-bae3-473e-9692-58bd96cb010c" class="code code-wrap"><code>git pull upstreammastergit push originmaster</code></pre><h1 id="9f8c5a8b-2855-4e49-a56f-9a3a6c8d77b6" class="">HACIENDO DEPLOYMENT A UN SERVIDOR</h1><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="e7d22d10-29d9-4c81-8f39-95bff609aff9"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><strong>Deployment</strong> es el proceso de implementar o lanzar una aplicación o software en un entorno de producción, después de haber sido desarrollado y probado en un entorno de pruebas. Este proceso implica la configuración y la instalación de la aplicación en el servidor o plataforma de destino, asegurándose de que todos los componentes y dependencias estén en su lugar y funcionando correctamente.<p id="a68f4756-b831-40f6-b0f5-881995955576" class="">El objetivo del deployment es hacer que la aplicación esté disponible para su uso por parte de los usuarios finales, y garantizar que funcione de manera eficiente y sin errores. El proceso de deployment puede ser automatizado o manual, dependiendo del tamaño y complejidad de la aplicación, y puede requerir la colaboración de diferentes equipos, como desarrolladores, administradores de sistemas y de redes, y equipos de seguridad.</p></div></figure><p id="561b065a-8e3f-4820-a005-f325a73699ba" class=""><strong>Deploy</strong> es el proceso que permite enviar al servidor uno o varios archivos. Este servidor puede ser de prueba, desarrollo o producción.</p><p id="c797ab2d-6423-48f8-8b3f-f4295d2fdafe" class="">En el siguiente ejemplo veremos cómo se realiza el deployment de un documento en un servidor web básico.</p><h2 id="5561ec84-1520-4f59-97d7-17d2fe2cf9e5" class="">Pasos para hacer deployment en un servidor web:</h2><ul id="477235d6-8f68-4426-bdf6-889ccaf6fa4d" class="bulleted-list"><li style="list-style-type:disc">Entrar a la capeta de los archivos del servidor.</li></ul><ul id="6a7b6474-df23-4179-8e96-53620e77a713" class="bulleted-list"><li style="list-style-type:disc">Copiar link en <em>clone</em>, elegir entre HTTPS o SSH del repositorio a contribuir.En la carpeta deseada se clona el repositorio:</li></ul><pre id="6726cffd-a9ef-402a-a5bc-0a81e55794b3" class="code code-wrap"><code>gitcloneurl
+Deploy:
+</code></pre><ul id="3b14b92d-a3cb-485b-98dc-0f87bbbbde76" class="bulleted-list"><li style="list-style-type:disc">Realizar cambios y <em>commit</em> en GitHub.</li></ul><ul id="0db94f1f-db09-45a8-95f9-af8129fe0c1c" class="bulleted-list"><li style="list-style-type:disc">Traer al Repositorio local las actualizacion para el servidor en la capeta de los archivos del servidor.</li></ul><pre id="98d7654e-2f9b-4624-ad87-fe3ec5b9de3e" class="code code-wrap"><code>git pull ramaRemota main
+</code></pre><p id="486b09fb-3f09-4a2d-972e-85fd3dde93ee" class="">Nota: Siempre se debe proteger el archivo .git. Dependiendo del software para el servidor web, existen diferentes maneras. La conexión entre GitHub y el servidor se puede realizar mediante: Travis (pago) o Jenkis (Open source).</p><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="db8b4cae-5534-41a0-8f7d-34b5b720fb54"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><strong>Travis CI</strong><ul id="8236fabc-3795-4af8-b3e4-6c975858bddf" class="bulleted-list"><li style="list-style-type:disc">Travis CI es un servicio de integración continua alojado en la nube que se utiliza para construir y probar proyectos de software automáticamente.</li></ul><ul id="c343dbdc-40fc-407d-b6f5-5530d9d0c8e8" class="bulleted-list"><li style="list-style-type:disc">Travis CI es compatible con varios lenguajes de programación, incluyendo Ruby, JavaScript, Python, Java y PHP, entre otros.</li></ul><ul id="03aeafaa-6d6a-4145-8dea-d7f09d879040" class="bulleted-list"><li style="list-style-type:disc">Para comenzar a usar Travis CI, debes vincular tu repositorio de GitHub o Bitbucket y crear un archivo de configuración <code>.travis.yml</code> para indicar la configuración de compilación y prueba.</li></ul><p id="8a32c922-9289-475a-bfb7-4f9b4c5cf853" class=""><strong>Jenkins</strong></p><ul id="0aaa86d2-bf3d-49c0-a413-5b923d8029af" class="bulleted-list"><li style="list-style-type:disc">Jenkins es una herramienta de automatización de código abierto que se utiliza para construir, probar y distribuir software.</li></ul><ul id="f1ecc119-4d44-4951-a0e4-8dae43d0707b" class="bulleted-list"><li style="list-style-type:disc">Jenkins es altamente personalizable y se puede utilizar con una gran variedad de herramientas de compilación, prueba y despliegue.</li></ul><ul id="f8abfb61-05c6-45f8-b0d8-8ce93f953ae2" class="bulleted-list"><li style="list-style-type:disc">Jenkins se ejecuta en un servidor y se puede acceder a él a través de una interfaz web.</li></ul></div></figure><h1 id="b21a97ba-2025-4746-a871-59c64d1967d3" class="">IGNORAR ARCHIVOS EN EL REPOSITORIO CON .GITIGNORE</h1><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="b3e1ac52-fe65-4030-a854-e0fdbb2fcc4a"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><a href="https://git-scm.com/docs/gitignore">Ver documentación oficial</a></div></figure><p id="c36a7254-9a8b-4df5-afd4-d33aaff82dca" class="">No todos los archivos que agregas a un proyecto deberían ir a un repositorio. Por ejemplo, cuando tienes un archivo donde están tus contraseñas que comúnmente tienen la extensión <code>.env</code> o cuando te estás conectando a una base de datos; <strong>son archivos que nadie debe ver</strong>.</p><p id="343a79cf-7716-4cf0-b2fe-401dd45a2573" class="">Por diversas razones, no todos los archivos que agregas a un proyecto deberían guardarse en un repositorio. Esto es porque hay archivos que no todo el mundo debería de ver, y hay archivos que al estar en el repositorio ralentizan el proceso de desarrollo (por ejemplo: los binary large objects, blob, que tardan en descargarse).</p><p id="e83b512a-8b6c-433b-8d2e-2454d2db2972" class="">Para que no se suban estos archivos no deseados se puede crear un archivo con el nombre .gitignore en la raíz del repositorio con las reglas para los archivos que no se deberían subir: Aquí puedes ver la <a href="https://git-scm.com/docs/gitignore">sintaxis de los .gitignore</a>.</p><p id="7f611338-13a4-40be-ad98-024c3b9fdf45" class="">Las razones principales para tomar la decisión de no agregar un archivo a un repositorio son:</p><ul id="973289fa-6a75-49fb-ab17-c656bd37af85" class="bulleted-list"><li style="list-style-type:disc">Es un archivo con contraseñas (normalmente con la extensión .env)</li></ul><ul id="4b3428d2-384b-4eef-99de-35599cf801c6" class="bulleted-list"><li style="list-style-type:disc">Es un blob (binary large object, objeto binario grande), mismos que son difíciles de gestionar en git.</li></ul><ul id="7a5b7297-3452-40db-9aaf-56ffdb441a42" class="bulleted-list"><li style="list-style-type:disc">Son archivos que se generan corriendo comandos, por ejemplo la carpeta node_modules, que genera <strong>npm</strong> al correr el comando npm install</li></ul><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="8916fc6a-dd18-46d7-bf07-f03963333e87"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%">No es una buena práctica subir directamente imágenes a GitHub. Por ello, las imágenes deben ser ignoradas en el .gitignore y si quieremos añadir alguna imagen a nuestro proyecto podemos referenciarla desde algún servicio de Internet por ejemplo <a href="https://imgur.com/">imgur</a>.</div></figure><p id="248fdf86-d495-4a3e-a841-0a5e4d79ed73" class="">
+</p><ol type="1" id="8248b7a2-b5cc-48b4-9519-3bc9a1a3e1d7" class="numbered-list" start="1"><li>entra en la pagina</li></ol><ol type="1" id="7e24b055-f024-4673-8ece-c42c736f7068" class="numbered-list" start="2"><li>sube la imagen (no es necesario estar registrado)</li></ol><ol type="1" id="42655cd3-8fd0-4dfb-bc09-65e3cbfc319c" class="numbered-list" start="3"><li>copia la direccion url que se le asigna a la imagen</li></ol><ol type="1" id="1748be60-74be-4f20-b99c-112e69a31218" class="numbered-list" start="4"><li>en tu archivo html dentro la etiqueta para un nuevo parrafo escribre la etiqueta para crear una nueva ancla <strong>&lt;a&gt;&lt;/a&gt;</strong></li></ol><ol type="1" id="a1da2ee0-2345-42c7-a3c1-793d2a3bc208" class="numbered-list" start="5"><li>dentro de los signo de la primera a escribe el vinculo href=tu_url</li></ol><ol type="1" id="d66e8672-30a1-44b9-84fe-779a1998c15d" class="numbered-list" start="6"><li>dentro de la etiqueta para el ancla escribe la etiqueta de la imagen espesificando la direccion, la cual sera igual a la direccion del hipervinculo pero con una i al principio y terminando con .jpg</li></ol><ol type="1" id="9c746e74-6e48-4c7d-8b90-6b6e4a24b9a3" class="numbered-list" start="7"><li>cierras la etiqueta de ancla y cierras la etiqueta del parrafo<strong>ejemplo</strong></li></ol><pre id="54e8773c-73d6-41f8-bfbe-88f67c612018" class="code code-wrap"><code>&lt;p&gt;&lt;a href=&quot;https://imgur.com/P0uCD21&quot;&gt;&lt;img src=&quot;https://i.imgur.com/P0uCD2l.jpg&quot; width=&quot;100%&quot; title=&quot;descripcion de la imagen&quot; /&gt;&lt;/a&gt;&lt;/p&gt;</code></pre><h1 id="27faa2f8-be00-40f4-a072-3c8ecd7c2be4" class="">README.MD</h1><p id="33bf6da0-fd77-4ccd-9b81-76ee618b4cd1" class="">Un archivo <a href="http://readme.md/">README.md</a> es un archivo de texto que se encuentra en la raíz de un repositorio en GitHub. En él se proporciona información sobre el proyecto, como su propósito, su uso, la instalación, la documentación y cualquier otra información relevante. Es importante tener un buen archivo <a href="http://readme.md/">README.md</a>, ya que es la primera cosa que cualquier visitante del repositorio verá y puede influir en su decisión de utilizar o colaborar con el proyecto.</p><p id="2f768e97-21e5-41a8-aa56-fca313b2c419" class="">Se puede editar directamente el archivo .md usando nuestro editor de código o a través de un editor online.</p><p id="9fb00b6f-53e1-4220-b5d8-4d22455447a6" class="">
+</p><p id="17e7e0d3-1736-4266-aff6-ef25e9a47f67" class="">Aquí hay un ejemplo de editor online: <a href="https://pandao.github.io/editor.md/en.html">editor.md</a></p><p id="9a583b86-5925-4ecc-b456-1073bb112e85" class="">
+</p><h1 id="5a68946f-0e48-4cae-a9af-c6cc68d13bb3" class="">TU SITIO WEB PÚBLICO CON GITHUB PAGES</h1><p id="5e833b49-d10a-4d7d-a04b-e137614e73c4" class="">GitHub Pages es un servicio de alojamiento de sitios web estáticos que permite a los usuarios alojar y publicar sitios web directamente desde sus repositorios de GitHub. Es una forma fácil y conveniente de crear y alojar un sitio web personal, un blog o una documentación para un proyecto, utilizando Git y Markdown. GitHub Pages es gratuito y se puede utilizar con un dominio personalizado o con uno proporcionado por GitHub.</p><figure id="bdb64cbe-ea27-4fdc-970b-fae6e56d8571"><div class="source"><a href="https://pages.github.com/">https://pages.github.com/</a></div></figure><p id="aa60a8ad-512f-423e-9c59-8726983e3bf0" class="">
+</p></div></article></body></html>
